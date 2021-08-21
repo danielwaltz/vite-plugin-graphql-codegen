@@ -1,6 +1,7 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
-  }
-  return a + b;
-};
+import { Plugin } from 'vite';
+
+export default function VitePluginGraphQLCodegen(): Plugin {
+  return {
+    name: 'graphql-codegen',
+  };
+}
