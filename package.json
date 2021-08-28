@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,7 +18,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "release": "standard-version"
+    "release": "standard-version",
+    "semantic-release": "semantic-release"
   },
   "husky": {
     "hooks": {
@@ -58,10 +59,15 @@
     "graphql-tag": "^2.12.5",
     "husky": "^7.0.1",
     "size-limit": "^5.0.3",
+    "semantic-release": "^17.4.7",
     "standard-version": "^9.3.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.3.5",
     "vite": "^2.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
   }
 }
