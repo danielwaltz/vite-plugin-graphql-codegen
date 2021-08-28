@@ -16,13 +16,14 @@ export async function isDocumentMatch(
   const normalized = normalizeInstanceOrArray(config.documents);
   const documents = await context.loadDocuments(normalized);
 
-  if (!documents) return false;
+  if (!documents.length) return false;
 
-  for (const document of documents) {
-    if (!document.location) break;
-    const relativeDocumentPath = matcher.getRelativePath(document.location);
-    return matcher.match(relativeDocumentPath);
-  }
+  const paths = documents
+    .map(({ location = '' }) => location)
+    .map(matcher.getRelativePath)
+    .filter(Boolean);
 
-  return false;
+  if (!paths.length) return false;
+
+  return paths.some(matcher.match);
 }
