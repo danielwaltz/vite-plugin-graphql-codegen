@@ -48,12 +48,14 @@
     "@graphql-codegen/cli": "^2.1.1"
   },
   "dependencies": {
+    "graphql": "^14.0.0 || ^15.0.0",
     "minimatch": "^3.0.4"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.1.1",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@types/minimatch": "^3.0.5",
+    "graphql-tag": "^2.12.5",
     "husky": "^7.0.1",
     "size-limit": "^5.0.3",
     "standard-version": "^9.3.1",
