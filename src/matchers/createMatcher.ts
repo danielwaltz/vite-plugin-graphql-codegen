@@ -3,10 +3,7 @@ import minimatch from 'minimatch';
 
 export type Matcher = ReturnType<typeof createMatcher>;
 
-export default function createMatcher(
-  absolutePath: string,
-  config: ResolvedConfig
-) {
+export function createMatcher(absolutePath: string, config: ResolvedConfig) {
   const getRelativePath = (path: string) => {
     return path.split(`${config.root}/`).slice(-1)[0];
   };
