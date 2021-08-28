@@ -37,6 +37,17 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Install deps
+        uses: bahmutov/npm-install@v1
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
