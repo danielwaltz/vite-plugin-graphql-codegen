@@ -50,7 +50,7 @@ export default function VitePluginGraphQLCodegen(): Plugin {
           // If generated path is directory
           const { preset = '', presetConfig } = genConfig;
           const isNearOperationFilePreset = preset === 'near-operation-file';
-          const presetExt = presetConfig?.extension ?? '';
+          const presetExt = presetConfig?.extension ?? '.generated.ts';
           if (isNearOperationFilePreset && match(`**/*${presetExt}`)) return;
         }
 
