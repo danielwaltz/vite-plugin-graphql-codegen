@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.1.0...v1.1.1) (2021-08-28)
+
+
+### Bug Fixes
+
+* Add fallback extension to preset config ([7e6b862](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/7e6b86298640a37522c85a3d36eca8d72cab516a))
+* Make documents matcher work with multiple files ([a047a37](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/a047a3782e735eb769fc58d9e4ef7c551d338b23))
+
 # [1.1.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.0.1...v1.1.0) (2021-08-28)
 
 
