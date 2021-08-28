@@ -18,10 +18,14 @@ export default function VitePluginGraphQLCodegen(): Plugin {
       viteConfig = resolvedConfig;
     },
     async buildStart() {
-      await generate(codegenContext);
+      try {
+        await generate(codegenContext);
+      } catch (error) {
+        console.log('Something went wrong.');
+      }
     },
     configureServer(server) {
-      const listener = (path = '') => {
+      const listener = async (path = '') => {
         const { generates, documents } = codegenContext.getConfig();
 
         // Check if file is a generated file
@@ -30,11 +34,15 @@ export default function VitePluginGraphQLCodegen(): Plugin {
         if (isGenerated) return;
 
         // Check if file is an operation document
-        const [, fileName = ''] = path.split(`${viteConfig.root}/`);
-        const isDocument = minimatch(fileName, documents);
+        const [, relativePath = ''] = path.split(`${viteConfig.root}/`);
+        const isDocument = minimatch(relativePath, documents);
         if (!isDocument) return;
 
-        generate(codegenContext);
+        try {
+          await generate(codegenContext);
+        } catch (error) {
+          console.log('Something went wrong. Please save the file again.');
+        }
       };
 
       server.watcher.on('add', listener);
