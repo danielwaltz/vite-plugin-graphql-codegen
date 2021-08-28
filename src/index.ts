@@ -1,10 +1,18 @@
 import { Plugin, ResolvedConfig } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
+import {
+  normalizeInstanceOrArray,
+  Types,
+} from '@graphql-codegen/plugin-helpers';
 import minimatch from 'minimatch';
 
 export default function VitePluginGraphQLCodegen(): Plugin {
   let viteConfig: ResolvedConfig;
   let codegenContext: CodegenContext;
+
+  const getRelativePath = (path: string) => {
+    return path.split(`${viteConfig.root}/`).slice(-1)[0];
+  };
 
   return {
     name: 'graphql-codegen',
@@ -26,17 +34,35 @@ export default function VitePluginGraphQLCodegen(): Plugin {
     },
     configureServer(server) {
       const listener = async (path = '') => {
-        const { generates, documents } = codegenContext.getConfig();
+        const relativePath = getRelativePath(path);
+        const match = (pattern: string) => minimatch(relativePath, pattern);
 
-        // Check if file is a generated file
-        const generated = Object.keys(generates);
-        const isGenerated = generated.some(file => path.includes(file));
-        if (isGenerated) return;
+        const codegenConfig = codegenContext.getConfig<Types.Config>();
+        const { generates = {}, documents } = codegenConfig;
 
-        // Check if file is an operation document
-        const [, relativePath = ''] = path.split(`${viteConfig.root}/`);
-        const isDocument = minimatch(relativePath, documents);
-        if (!isDocument) return;
+        // If modified file is generated
+        for (const [genPath, genConfig] of Object.entries(generates)) {
+          // If generated path is file
+          const fileExt = genPath.split('.').slice(-1)[0];
+          const isFile = !!fileExt;
+          if (isFile && match(genPath)) return;
+
+          // If generated path is directory
+          const { preset = '', presetConfig } = genConfig;
+          const isNearOperationFilePreset = preset === 'near-operation-file';
+          const presetExt = presetConfig?.extension ?? '';
+          if (isNearOperationFilePreset && match(`**/*${presetExt}`)) return;
+        }
+
+        // If modified file is operation document
+        if (!documents) return;
+        const normalized = normalizeInstanceOrArray(documents);
+        const documentFiles = codegenContext.loadDocuments(normalized);
+
+        for (const docFile of await documentFiles) {
+          if (!docFile.location) break;
+          if (!match(getRelativePath(docFile.location))) return;
+        }
 
         try {
           await generate(codegenContext);
