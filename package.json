@@ -49,8 +49,7 @@
     "@graphql-codegen/cli": "^1.0.0 || ^2.0.0"
   },
   "dependencies": {
-    "graphql": "^14.0.0 || ^15.0.0",
-    "minimatch": "^3.0.4"
+    "graphql": "^14.0.0 || ^15.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.1.1",

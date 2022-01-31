@@ -1,9 +1,8 @@
-import { Plugin, ResolvedConfig } from 'vite';
+import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
-import { createMatcher, isDocumentMatch } from './matchers';
+import { isGraphQLDocument } from './helpers';
 
 export default function VitePluginGraphQLCodegen(): Plugin {
-  let viteConfig: ResolvedConfig;
   let codegenContext: CodegenContext;
 
   return {
@@ -14,9 +13,6 @@ export default function VitePluginGraphQLCodegen(): Plugin {
       // Vite handles file watching
       codegenContext.updateConfig({ watch: false });
     },
-    configResolved(resolvedConfig) {
-      viteConfig = resolvedConfig;
-    },
     async buildStart() {
       try {
         await generate(codegenContext);
@@ -25,10 +21,9 @@ export default function VitePluginGraphQLCodegen(): Plugin {
       }
     },
     configureServer(server) {
-      const listener = async (absolutePath = '') => {
-        const matcher = createMatcher(absolutePath, viteConfig);
+      const listener = async (filePath = '') => {
+        const isDocument = await isGraphQLDocument(filePath, codegenContext);
 
-        const isDocument = await isDocumentMatch(matcher, codegenContext);
         if (!isDocument) return;
 
         try {
