@@ -45,6 +45,9 @@
       "limit": "10 KB"
     }
   ],
+  "jest": {
+    "testEnvironment": "node"
+  },
   "peerDependencies": {
     "@graphql-codegen/cli": "^1.0.0 || ^2.0.0"
   },
