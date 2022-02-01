@@ -52,20 +52,19 @@
     "graphql": "^14.0.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.1.1",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@size-limit/preset-small-lib": "^5.0.3",
-    "@types/minimatch": "^3.0.5",
-    "graphql-tag": "^2.12.5",
-    "husky": "^7.0.1",
-    "semantic-release": "^17.4.7",
-    "size-limit": "^5.0.3",
-    "standard-version": "^9.3.1",
+    "@graphql-codegen/cli": "^2.4.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@size-limit/preset-small-lib": "^7.0.5",
+    "graphql-tag": "^2.12.6",
+    "husky": "^7.0.4",
+    "semantic-release": "^19.0.2",
+    "size-limit": "^7.0.5",
+    "standard-version": "^9.3.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.3.5",
-    "vite": "^2.5.0"
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13"
   },
   "repository": {
     "type": "git",
