@@ -43,6 +43,8 @@ codegen({
   runOnBuild: true,
   /* Should codegen run when files get added or change. Defaults to true. */
   enableWatcher: true
+  /* Allows overriding codegen configuration options just in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
+  configOverride: CodegenConfig
 })
 ```
 
