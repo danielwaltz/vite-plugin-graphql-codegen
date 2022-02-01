@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.2.0...v1.3.0) (2022-02-01)
+
+
+### Features
+
+* Support disabling codegen in certain modes ([9c546a7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/9c546a799664df7877e980b3daf8353d8498fd9a))
+* Support overwriting codegen config options ([4224cec](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/4224cec993f6f7a9ca76dff4a677b9c42bb8586d))
+
 # [1.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.1.1...v1.2.0) (2022-02-01)
 
 
