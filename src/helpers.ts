@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { CodegenContext } from '@graphql-codegen/cli';
 import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
@@ -20,4 +21,24 @@ export async function isGraphQLDocument(
   if (!paths.length) return false;
 
   return paths.some(documentPath => documentPath === filePath);
+}
+
+export function isCodegenConfig(
+  filePath: string,
+  context: CodegenContext
+): boolean {
+  const configPath = context.filepath;
+  return configPath === filePath;
+}
+
+export function restartVite(fileName: string) {
+  if (!fileName) return;
+
+  const time = new Date();
+
+  try {
+    fs.utimesSync(fileName, time, time);
+  } catch (error) {
+    fs.closeSync(fs.openSync(fileName, 'w'));
+  }
 }
