@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.1.1...v1.2.0) (2022-02-01)
+
+
+### Features
+
+* Restart vite when codegen config file changes ([24b0d0e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/24b0d0e6e4b1d22f40a79fd6b9e6fa5c223feba7))
+
 ## [1.1.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.1.0...v1.1.1) (2021-08-28)
 
 
