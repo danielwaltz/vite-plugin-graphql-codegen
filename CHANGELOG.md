@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.3.0...v1.4.0) (2022-02-09)
+
+
+### Features
+
+* Add a debug option to aid in troubleshooting ([092398d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/092398db4e4a35eefc03f564f35ceb9cc7e8ffa8))
+
 # [1.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.2.0...v1.3.0) (2022-02-01)
 
 
