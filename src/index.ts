@@ -6,15 +6,16 @@ import { isCodegenConfig } from './helpers/isCodegenConfig';
 import { isGraphQLDocument } from './helpers/isGraphQLDocument';
 import { restartVite } from './helpers/restartVite';
 import { ViteMode, isServeMode, isBuildMode } from './helpers/viteModes';
+import { debugLog } from './helpers/debugLog';
 
 export interface Options {
   /**
-   * Enable codegen in serve mode.
+   * Run codegen when the server starts.
    * @defaultValue `true`
    */
   runOnStart?: boolean;
   /**
-   * Enable codegen in build mode.
+   * Run codegen on builds.
    * @defaultValue `true`
    */
   runOnBuild?: boolean;
@@ -27,6 +28,11 @@ export interface Options {
    * Override codegen configuration just for this plugin.
    */
   configOverride?: Partial<Types.Config>;
+  /**
+   * Log various steps to aid in tracking down bugs.
+   * @defaultValue `false`
+   */
+  debug?: boolean;
 }
 
 const VITE_CONFIG_FILE_NAMES = ['vite.config.ts', 'vite.config.js'] as const;
@@ -41,12 +47,22 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnBuild = true,
     enableWatcher = true,
     configOverride = {},
+    debug = false,
   } = options ?? {};
+
+  const log = (...args: any[]) => {
+    if (!debug) return;
+    debugLog(...args);
+  };
+
+  log('Plugin initialized with options:', options);
 
   return {
     name: 'graphql-codegen',
     async config(config, env) {
+      log('Loading codegen context');
       codegenContext = await loadContext(config.root);
+      log('Codegen context loaded');
 
       // Vite handles file watching
       const watch = false;
@@ -57,8 +73,11 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     },
     configResolved() {
       for (const fileName of VITE_CONFIG_FILE_NAMES) {
+        log('Checking for vite config file:', fileName);
+
         if (fs.existsSync(fileName)) {
           viteConfigFileName = fileName;
+          log('Vite config file found:', fileName);
           break;
         }
       }
@@ -72,18 +91,25 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
 
       try {
         await generate(codegenContext);
+        isServe && log('Generation successful on start');
+        isBuild && log('Generation successful on build');
       } catch (error) {
+        // GraphQL Codegen handles logging useful errors
+        isServe && log('Generation failed on start');
+        isBuild && log('Generation failed on build');
+
         // Prevent build if codegen fails
         if (isBuild) throw error;
-
-        // GraphQL Codegen handles logging useful errors
       }
     },
     configureServer(server) {
       const listener = async (filePath = '') => {
+        log('File changed:', filePath);
+
         const isConfig = isCodegenConfig(filePath, codegenContext);
 
         if (isConfig) {
+          log('Codegen config file changed, restarting vite');
           restartVite(viteConfigFileName);
           return;
         }
@@ -92,16 +118,22 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
 
         try {
           const isDocument = await isGraphQLDocument(filePath, codegenContext);
+          log('Document check successful in file watcher');
 
           if (!isDocument) return;
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
+          log('Document check failed in file watcher');
         }
+
+        log('File matched a graphql document');
 
         try {
           await generate(codegenContext);
+          log('Generation successful in file watcher');
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
+          log('Generation failed in file watcher');
         }
       };
 

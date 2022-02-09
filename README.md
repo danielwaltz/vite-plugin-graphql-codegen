@@ -42,9 +42,11 @@ codegen({
   /* Should codegen run on build. Will prevent build if codegen fails. Defaults to true. */
   runOnBuild: true,
   /* Should codegen run when files get added or change. Defaults to true. */
-  enableWatcher: true
-  /* Allows overriding codegen configuration options just in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
-  configOverride: CodegenConfig
+  enableWatcher: true,
+  /* Allows overriding codegen configuration options in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
+  configOverride: CodegenConfig,
+  /* Enable plugin logging to assist in debugging. Defaults to false. */
+  debug: false,
 })
 ```
 
