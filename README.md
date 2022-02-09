@@ -45,6 +45,8 @@ codegen({
   enableWatcher: true,
   /* Allows overriding codegen configuration options in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
   configOverride: CodegenConfig,
+  /* Allows you to point to a non-standard config path location. Defaults to codegen.yml */
+  configPath: 'codegen.yml',
   /* Enable plugin logging to assist in debugging. Defaults to false. */
   debug: false,
 })
