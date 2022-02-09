@@ -25,6 +25,11 @@ export interface Options {
    */
   enableWatcher?: boolean;
   /**
+   * Allows you to point to a non-standard config path location
+   * @defaultValue `codegen.yml`
+   */
+  configPath?: string;
+  /**
    * Override codegen configuration just for this plugin.
    */
   configOverride?: Partial<Types.Config>;
@@ -46,6 +51,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnStart = true,
     runOnBuild = true,
     enableWatcher = true,
+    configPath = "codegen.yml",
     configOverride = {},
     debug = false,
   } = options ?? {};
@@ -61,7 +67,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     name: 'graphql-codegen',
     async config(config, env) {
       log('Loading codegen context');
-      codegenContext = await loadContext(config.root);
+      codegenContext = await loadContext(config.root + options.configPath);
       log('Codegen context loaded');
 
       // Vite handles file watching
