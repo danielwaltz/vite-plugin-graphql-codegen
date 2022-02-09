@@ -67,7 +67,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     name: 'graphql-codegen',
     async config(config, env) {
       log('Loading codegen context');
-      codegenContext = await loadContext(config.root + options.configPath);
+      codegenContext = await loadContext(config.root + '/' + options.configPath);
       log('Codegen context loaded');
 
       // Vite handles file watching
