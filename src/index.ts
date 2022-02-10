@@ -29,6 +29,10 @@ export interface Options {
    */
   configOverride?: Partial<Types.Config>;
   /**
+   * Override the codegen configuration file path.
+   */
+  configFilePathOverride?: string;
+  /**
    * Log various steps to aid in tracking down bugs.
    * @defaultValue `false`
    */
@@ -47,6 +51,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnBuild = true,
     enableWatcher = true,
     configOverride = {},
+    configFilePathOverride,
     debug = false,
   } = options ?? {};
 
@@ -59,10 +64,16 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
 
   return {
     name: 'graphql-codegen',
-    async config(config, env) {
-      log('Loading codegen context');
-      codegenContext = await loadContext(config.root);
-      log('Codegen context loaded');
+    async config(_config, env) {
+      try {
+        const cwd = process.cwd();
+        log('Loading codegen context:', configFilePathOverride ?? cwd);
+        codegenContext = await loadContext(configFilePathOverride);
+        log('Loading codegen context successful');
+      } catch (error) {
+        log('Loading codegen context failed');
+        throw error;
+      }
 
       // Vite handles file watching
       const watch = false;
