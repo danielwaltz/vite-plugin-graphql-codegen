@@ -76,9 +76,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
       }
 
       // Vite handles file watching
-      const watch = false;
-
-      codegenContext.updateConfig({ ...configOverride, watch });
+      codegenContext.updateConfig({ ...configOverride, watch: false });
 
       viteMode = env.command;
     },
