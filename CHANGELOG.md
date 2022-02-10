@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.4.0...v1.5.0) (2022-02-10)
+
+
+### Features
+
+* Add option to override codegen config file path ([ddf9c54](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/ddf9c5402c4d626d2e1761cd98d692c6cbda5efe)), closes [#1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/1)
+
 # [1.4.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.3.0...v1.4.0) (2022-02-09)
 
 
