@@ -3,6 +3,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -34,6 +35,15 @@
   },
   "name": "vite-plugin-graphql-codegen",
   "author": "Daniel Waltz",
+  "keywords": [
+    "graphql",
+    "codegen",
+    "graphql-codegen",
+    "graphql-code-generator",
+    "vite",
+    "vite-plugin",
+    "vite-plugin-graphql-codegen"
+  ],
   "module": "dist/vite-plugin-graphql-codegen.esm.js",
   "size-limit": [
     {
