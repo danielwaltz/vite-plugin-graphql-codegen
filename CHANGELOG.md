@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.5.0...v1.5.1) (2022-02-23)
+
+
+### Bug Fixes
+
+* Fix graphql dependency ([aeb9b59](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/aeb9b59da2e83822a71d0f827d0219eeedd295f8))
+
 # [1.5.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.4.0...v1.5.0) (2022-02-10)
 
 
