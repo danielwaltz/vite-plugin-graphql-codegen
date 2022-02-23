@@ -1,6 +1,6 @@
 # Vite Plugin GraphQL Codegen
 
-Experimental zero-config vite plugin that uses the vite file watcher to run [graphql codegen](https://www.graphql-code-generator.com/) programmatically without needing to start a separate watcher.
+Zero-config vite plugin that uses the vite file watcher to run [graphql codegen](https://www.graphql-code-generator.com/) programmatically without needing to start a separate watcher.
 
 ## Setup GraphQL Codegen
 
