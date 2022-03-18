@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.5.2...v1.6.0) (2022-03-18)
+
+
+### Features
+
+* Support passing manual codegen config ([e86079b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/e86079bce751acfa8e5b1b0f3565a7cc3f4b2514)), closes [#3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/3)
+
 ## [1.5.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.5.1...v1.5.2) (2022-02-23)
 
 
