@@ -43,6 +43,8 @@ codegen({
   runOnBuild: true,
   /* Should codegen run when files get added or change. Defaults to true. */
   enableWatcher: true,
+  /* Allows manually defining the codegen config instead of relying on cosmiconfig. */
+  config: CodegenConfig,
   /* Allows overriding codegen configuration options in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
   configOverride: CodegenConfig,
   /* Allows overriding the codegen configuration file path. */

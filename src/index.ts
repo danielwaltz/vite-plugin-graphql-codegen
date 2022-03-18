@@ -25,6 +25,10 @@ export interface Options {
    */
   enableWatcher?: boolean;
   /**
+   * Manually define the codegen config.
+   */
+  config?: Types.Config;
+  /**
    * Override codegen configuration just for this plugin.
    */
   configOverride?: Partial<Types.Config>;
@@ -50,6 +54,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnStart = true,
     runOnBuild = true,
     enableWatcher = true,
+    config = null,
     configOverride = {},
     configFilePathOverride,
     debug = false,
@@ -66,9 +71,14 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     name: 'graphql-codegen',
     async config(_config, env) {
       try {
-        const cwd = process.cwd();
-        log('Loading codegen context:', configFilePathOverride ?? cwd);
-        codegenContext = await loadContext(configFilePathOverride);
+        if (config) {
+          log('Manual config passed, creating codegen context');
+          codegenContext = new CodegenContext({ config });
+        } else {
+          const cwd = process.cwd();
+          log('Loading codegen context:', configFilePathOverride ?? cwd);
+          codegenContext = await loadContext(configFilePathOverride);
+        }
         log('Loading codegen context successful');
       } catch (error) {
         log('Loading codegen context failed');
