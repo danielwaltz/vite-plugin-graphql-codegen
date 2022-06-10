@@ -10,12 +10,12 @@ import { debugLog } from './helpers/debugLog';
 
 export interface Options {
   /**
-   * Run codegen when the server starts.
+   * Run codegen on server start.
    * @defaultValue `true`
    */
   runOnStart?: boolean;
   /**
-   * Run codegen on builds.
+   * Run codegen on build. Will prevent build if codegen fails.
    * @defaultValue `true`
    */
   runOnBuild?: boolean;
@@ -29,11 +29,23 @@ export interface Options {
    */
   config?: Types.Config;
   /**
-   * Override codegen configuration just for this plugin.
+   * Override parts of the codegen config just for this plugin.
    */
   configOverride?: Partial<Types.Config>;
   /**
-   * Override the codegen configuration file path.
+   * Override parts of the codegen config just for this plugin on server start.
+   */
+  configOverrideOnStart?: Partial<Types.Config>;
+  /**
+   * Override parts of the codegen config just for this plugin on build.
+   */
+  configOverrideOnBuild?: Partial<Types.Config>;
+  /**
+   * Override parts of the codegen config just for this plugin in the watcher.
+   */
+  configOverrideWatcher?: Partial<Types.Config>;
+  /**
+   * Override the codegen config file path.
    */
   configFilePathOverride?: string;
   /**
@@ -56,6 +68,9 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     enableWatcher = true,
     config = null,
     configOverride = {},
+    configOverrideOnStart = {},
+    configOverrideOnBuild = {},
+    configOverrideWatcher = {},
     configFilePathOverride,
     debug = false,
   } = options ?? {};
@@ -63,6 +78,20 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   const log = (...args: any[]) => {
     if (!debug) return;
     debugLog(...args);
+  };
+
+  const generateWithOverride = async (
+    overrideConfig: Partial<Types.Config>
+  ) => {
+    const currentConfig = codegenContext.getConfig();
+
+    return generate({
+      ...currentConfig,
+      ...configOverride,
+      ...overrideConfig,
+      // Vite handles file watching
+      watch: false,
+    });
   };
 
   log('Plugin initialized with options:', options);
@@ -85,9 +114,6 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
         throw error;
       }
 
-      // Vite handles file watching
-      codegenContext.updateConfig({ ...configOverride, watch: false });
-
       viteMode = env.command;
     },
     configResolved() {
@@ -109,7 +135,9 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
       if (isBuild && !runOnBuild) return;
 
       try {
-        await generate(codegenContext);
+        if (isServe) await generateWithOverride(configOverrideOnStart);
+        if (isBuild) await generateWithOverride(configOverrideOnBuild);
+
         isServe && log('Generation successful on start');
         isBuild && log('Generation successful on build');
       } catch (error) {
@@ -148,7 +176,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
         log('File matched a graphql document');
 
         try {
-          await generate(codegenContext);
+          await generateWithOverride(configOverrideWatcher);
           log('Generation successful in file watcher');
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
