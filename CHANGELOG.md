@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.6.0...v1.7.0) (2022-06-10)
+
+
+### Features
+
+* support overriding config in certain modes ([97fce30](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/97fce30fc87fdc388ce008d47760c773ba602990))
+
 # [1.6.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.5.2...v1.6.0) (2022-03-18)
 
 
