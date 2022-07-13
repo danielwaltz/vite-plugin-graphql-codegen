@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.7.0...v1.8.0) (2022-07-13)
+
+
+### Features
+
+* support vite 3 ([c881720](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c88172034685037a2d9dc2afc1ccbaa4fa03f621))
+
 # [1.7.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.6.0...v1.7.0) (2022-06-10)
 
 
