@@ -14,6 +14,9 @@ npm i -D vite-plugin-graphql-codegen
 
 # yarn
 yarn add -D vite-plugin-graphql-codegen
+
+# pnpm
+pnpm i -D vite-plugin-graphql-codegen
 ```
 
 ## Initialize Plugin
