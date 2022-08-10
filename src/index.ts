@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
@@ -81,7 +81,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   };
 
   const generateWithOverride = async (
-    overrideConfig: Partial<Types.Config>
+    overrideConfig: Partial<Types.Config>,
   ) => {
     const currentConfig = codegenContext.getConfig();
 

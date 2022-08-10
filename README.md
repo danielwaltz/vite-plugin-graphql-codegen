@@ -57,7 +57,5 @@ codegen({
   configFilePathOverride: `${process.cwd()}/codegen.yml`,
   /* Enable plugin logging to assist in debugging. Defaults to false. */
   debug: false,
-})
+});
 ```
-
-Project bootstrapped with [TSDX](https://github.com/palmerhq/tsdx).

@@ -3,7 +3,7 @@ import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
 export async function isGraphQLDocument(
   filePath: string,
-  context: CodegenContext
+  context: CodegenContext,
 ): Promise<boolean> {
   const config = context.getConfig();
 
@@ -19,5 +19,5 @@ export async function isGraphQLDocument(
 
   if (!paths.length) return false;
 
-  return paths.some(documentPath => documentPath === filePath);
+  return paths.some((documentPath) => documentPath === filePath);
 }

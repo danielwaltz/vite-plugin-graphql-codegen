@@ -1,40 +1,19 @@
 {
+  "name": "vite-plugin-graphql-codegen",
   "version": "1.8.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "release": "standard-version",
-    "semantic-release": "semantic-release"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "vite-plugin-graphql-codegen",
   "author": "Daniel Waltz",
+  "type": "commonjs",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
+  },
   "keywords": [
     "graphql",
     "codegen",
@@ -44,19 +23,11 @@
     "vite-plugin",
     "vite-plugin-graphql-codegen"
   ],
-  "module": "dist/vite-plugin-graphql-codegen.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/vite-plugin-graphql-codegen.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/vite-plugin-graphql-codegen.esm.js",
-      "limit": "10 KB"
-    }
-  ],
-  "jest": {
-    "testEnvironment": "node"
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "release": "standard-version",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
     "@graphql-codegen/cli": "^1.0.0 || ^2.0.0",
@@ -64,24 +35,17 @@
     "vite": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.8.1",
+    "@graphql-codegen/cli": "^2.11.5",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@size-limit/preset-small-lib": "^7.0.8",
     "graphql": "^16.5.0",
     "graphql-tag": "^2.12.6",
-    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
     "semantic-release": "^19.0.3",
-    "size-limit": "^7.0.8",
     "standard-version": "^9.5.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
+    "tsup": "^6.2.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
+    "vite": "^3.0.5"
   },
   "release": {
     "branches": [
