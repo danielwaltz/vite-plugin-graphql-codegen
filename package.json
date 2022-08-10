@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-graphql-codegen",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "license": "MIT",
   "author": "Daniel Waltz",
   "type": "commonjs",

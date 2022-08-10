@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.0...v1.8.1) (2022-08-10)
+
+
+### Bug Fixes
+
+* normalize file paths before comparisons ([b855f0a](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/b855f0a886505ef801dae6c05c258ea58e4e2a90))
+
 # [1.8.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.7.0...v1.8.0) (2022-07-13)
 
 
