@@ -75,7 +75,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     debug = false,
   } = options ?? {};
 
-  const log = (...args: any[]) => {
+  const log = (...args: unknown[]) => {
     if (!debug) return;
     debugLog(...args);
   };

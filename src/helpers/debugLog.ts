@@ -1,4 +1,4 @@
-export function debugLog(...args: any[]) {
+export function debugLog(...args: unknown[]) {
   const LOG_PREFIX = '\x1b[36m[vite-plugin-graphql-codegen]\x1b[0m' as const;
   console.log(LOG_PREFIX, ...args);
 }
