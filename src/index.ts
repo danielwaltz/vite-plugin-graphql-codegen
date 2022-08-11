@@ -1,10 +1,8 @@
-import fs from 'node:fs';
 import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
 import { isCodegenConfig } from '@/utils/isCodegenConfig';
 import { isGraphQLDocument } from '@/utils/isGraphQLDocument';
-import { restartVite } from '@/utils/restartVite';
 import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
 import { debugLog } from '@/utils/debugLog';
 
@@ -55,12 +53,9 @@ export interface Options {
   debug?: boolean;
 }
 
-const VITE_CONFIG_FILE_NAMES = ['vite.config.ts', 'vite.config.js'] as const;
-
 export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
-  let viteConfigFileName: typeof VITE_CONFIG_FILE_NAMES[number];
 
   const {
     runOnStart = true,
@@ -116,17 +111,6 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
 
       viteMode = env.command;
     },
-    configResolved() {
-      for (const fileName of VITE_CONFIG_FILE_NAMES) {
-        log('Checking for vite config file:', fileName);
-
-        if (fs.existsSync(fileName)) {
-          viteConfigFileName = fileName;
-          log('Vite config file found:', fileName);
-          break;
-        }
-      }
-    },
     async buildStart() {
       const isServe = isServeMode(viteMode);
       const isBuild = isBuildMode(viteMode);
@@ -157,7 +141,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
 
         if (isConfig) {
           log('Codegen config file changed, restarting vite');
-          restartVite(viteConfigFileName);
+          server.restart();
           return;
         }
 
