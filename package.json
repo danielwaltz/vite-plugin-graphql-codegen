@@ -28,7 +28,8 @@
     "build": "tsup",
     "lint": "eslint . --no-fix --ignore-path .gitignore --max-warnings 0",
     "release": "standard-version",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepack": "yarn build"
   },
   "peerDependencies": {
     "@graphql-codegen/cli": "^1.0.0 || ^2.0.0",
@@ -62,8 +63,8 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
-      "@semantic-release/github",
-      "@semantic-release/git"
+      "@semantic-release/git",
+      "@semantic-release/github"
     ]
   }
 }
