@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.3...v2.0.0) (2022-08-11)
+
+
+### Features
+
+* update debug log output to match vite 3 ([c33bba7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c33bba7e351ecb1fc09f015e949d539b3c804f26))
+* use vite dev server restart function ([b413156](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/b4131565f28a785a460b1c19385e9cd41d1252fb))
+
+
+### BREAKING CHANGES
+
+* Requires vite version 2.7 or greater
+
 ## [1.8.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.2...v1.8.3) (2022-08-11)
 
 
