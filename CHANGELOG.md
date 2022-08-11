@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.2...v1.8.3) (2022-08-11)
+
+
+### Bug Fixes
+
+* switch to npm and refresh packages ([be95d72](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/be95d72e51c7eb907bab31ed08671ad0ac451c9c))
+
 ## [1.8.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.1...v1.8.2) (2022-08-11)
 
 
