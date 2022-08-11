@@ -2,11 +2,11 @@ import fs from 'node:fs';
 import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
-import { isCodegenConfig } from './helpers/isCodegenConfig';
-import { isGraphQLDocument } from './helpers/isGraphQLDocument';
-import { restartVite } from './helpers/restartVite';
-import { ViteMode, isServeMode, isBuildMode } from './helpers/viteModes';
-import { debugLog } from './helpers/debugLog';
+import { isCodegenConfig } from '@/utils/isCodegenConfig';
+import { isGraphQLDocument } from '@/utils/isGraphQLDocument';
+import { restartVite } from '@/utils/restartVite';
+import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
+import { debugLog } from '@/utils/debugLog';
 
 export interface Options {
   /**
