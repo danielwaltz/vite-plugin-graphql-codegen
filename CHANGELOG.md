@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.1...v1.8.2) (2022-08-11)
+
+
+### Bug Fixes
+
+* configure semantic release to release dist ([cfc1954](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/cfc195413cfedf4e06ebcf0a84590d3e2610e27e))
+
 ## [1.8.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.0...v1.8.1) (2022-08-10)
 
 
