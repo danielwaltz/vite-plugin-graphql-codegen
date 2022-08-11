@@ -1,4 +1,4 @@
-import { normalize } from 'node:path';
+import { normalizePath } from 'vite';
 import { CodegenContext } from '@graphql-codegen/cli';
 import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
@@ -18,10 +18,10 @@ export async function isGraphQLDocument(
 
   const paths = documents
     .map(({ location = '' }) => location)
-    .map(normalize)
+    .map(normalizePath)
     .filter(Boolean);
 
   if (!paths.length) return false;
 
-  return paths.some((documentPath) => documentPath === normalize(filePath));
+  return paths.some((documentPath) => documentPath === normalizePath(filePath));
 }
