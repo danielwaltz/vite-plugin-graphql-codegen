@@ -5,6 +5,6 @@ const FG_CYAN = '\x1b[36m';
 
 export function debugLog(...args: unknown[]) {
   const LOG_PREFIX =
-    `  ${FG_CYAN}${BRIGHT}VITE PLUGIN GRAPHQL CODEGEN${RESET} ` as const;
+    `${FG_CYAN}${BRIGHT}VITE PLUGIN GRAPHQL CODEGEN${RESET} ` as const;
   console.log(LOG_PREFIX, DIM, ...args, RESET);
 }
