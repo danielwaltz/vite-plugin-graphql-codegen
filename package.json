@@ -3,13 +3,6 @@
   "version": "2.0.0",
   "license": "MIT",
   "author": "Daniel Waltz",
-  "type": "commonjs",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
@@ -23,6 +16,25 @@
     "vite-plugin",
     "vite-plugin-graphql-codegen"
   ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  },
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -37,34 +49,21 @@
     "vite": "^2.7.0 || ^3.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.11.5",
+    "@graphql-codegen/cli": "^2.11.6",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
-    "eslint": "^8.21.0",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "graphql": "^16.5.0",
+    "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "prettier": "^2.7.1",
-    "semantic-release": "^19.0.3",
+    "semantic-release": "^19.0.5",
     "standard-version": "^9.5.0",
-    "tsup": "^6.2.1",
+    "tsup": "^6.2.2",
     "typescript": "^4.7.4",
-    "vite": "^3.0.5"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ]
+    "vite": "^3.0.9"
   }
 }
