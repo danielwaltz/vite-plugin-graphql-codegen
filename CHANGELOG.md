@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.0.0...v2.0.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* add default export for commonjs ([c93263f](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c93263f118a249f8fc9f3f9bb0ea3d4bf02d2e0e)), closes [#4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/4)
+* remove gap in debug log output ([a75a820](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/a75a820e1daa376396466b1618085fdf047f7d87))
+
 # [2.0.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v1.8.3...v2.0.0) (2022-08-11)
 
 
