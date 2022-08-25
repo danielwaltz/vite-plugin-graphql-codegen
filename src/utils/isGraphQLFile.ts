@@ -2,21 +2,22 @@ import { normalizePath } from 'vite';
 import { CodegenContext } from '@graphql-codegen/cli';
 import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
-export async function isGraphQLDocument(
+export async function isGraphQLFile(
   filePath: string,
   context: CodegenContext,
 ): Promise<boolean> {
-  const config = context.getConfig();
+  const { documents = [], schema = [] } = context.getConfig();
 
-  if (!config.documents) return false;
+  const normalized = [
+    ...normalizeInstanceOrArray(documents),
+    ...normalizeInstanceOrArray(schema),
+  ];
 
-  const normalized = normalizeInstanceOrArray(config.documents);
+  const loadedDocuments = await context.loadDocuments(normalized);
 
-  const documents = await context.loadDocuments(normalized);
+  if (!loadedDocuments.length) return false;
 
-  if (!documents.length) return false;
-
-  const paths = documents
+  const paths = loadedDocuments
     .map(({ location = '' }) => location)
     .map(normalizePath)
     .filter(Boolean);
