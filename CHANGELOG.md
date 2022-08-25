@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.1.1...v2.2.0) (2022-08-25)
+
+
+### Features
+
+* make commonjs the default with esm definitions ([df9e437](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/df9e4374bf318ff4b9beddd76e0271820de3078d))
+
 ## [2.1.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.1.0...v2.1.1) (2022-08-25)
 
 
