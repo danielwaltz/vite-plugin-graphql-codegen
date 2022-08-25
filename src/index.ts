@@ -2,7 +2,7 @@ import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
 import { isCodegenConfig } from '@/utils/isCodegenConfig';
-import { isGraphQLDocument } from '@/utils/isGraphQLDocument';
+import { isGraphQLFile } from '@/utils/isGraphQLFile';
 import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
 import { debugLog } from '@/utils/debugLog';
 
@@ -148,7 +148,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
         if (!enableWatcher) return;
 
         try {
-          const isDocument = await isGraphQLDocument(filePath, codegenContext);
+          const isDocument = await isGraphQLFile(filePath, codegenContext);
           log('Document check successful in file watcher');
 
           if (!isDocument) return;
