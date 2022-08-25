@@ -2,7 +2,7 @@ import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
 import { isCodegenConfig } from '@/utils/isCodegenConfig';
-import { isGraphQLFile } from '@/utils/isGraphQLFile';
+import { isGraphQLDocument, isGraphQLSchema } from '@/utils/fileMatchers';
 import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
 import { debugLog } from '@/utils/debugLog';
 
@@ -22,6 +22,16 @@ export interface Options {
    * @defaultValue `true`
    */
   enableWatcher?: boolean;
+  /**
+   * Run codegen when a document matches.
+   * @defaultValue `true`
+   */
+  matchOnDocuments?: boolean;
+  /**
+   * Run codegen when a schema matches. Only supports file path based schemas.
+   * @defaultValue `false`
+   */
+  matchOnSchemas?: boolean;
   /**
    * Manually define the codegen config.
    */
@@ -61,6 +71,8 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnStart = true,
     runOnBuild = true,
     enableWatcher = true,
+    matchOnDocuments = true,
+    matchOnSchemas = false,
     config = null,
     configOverride = {},
     configOverrideOnStart = {},
@@ -134,6 +146,8 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
       }
     },
     configureServer(server) {
+      if (!enableWatcher) return;
+
       const listener = async (filePath = '') => {
         log('File changed:', filePath);
 
@@ -145,19 +159,36 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
           return;
         }
 
-        if (!enableWatcher) return;
+        if (matchOnDocuments) {
+          try {
+            const isDocument = await isGraphQLDocument(
+              filePath,
+              codegenContext,
+            );
+            log('Document check successful in file watcher');
 
-        try {
-          const isDocument = await isGraphQLFile(filePath, codegenContext);
-          log('Document check successful in file watcher');
+            if (!isDocument) return;
 
-          if (!isDocument) return;
-        } catch (error) {
-          // GraphQL Codegen handles logging useful errors
-          log('Document check failed in file watcher');
+            log('File matched a graphql document');
+          } catch (error) {
+            // GraphQL Codegen handles logging useful errors
+            log('Document check failed in file watcher');
+          }
         }
 
-        log('File matched a graphql document');
+        if (matchOnSchemas) {
+          try {
+            const isSchema = await isGraphQLSchema(filePath, codegenContext);
+            log('Schema check successful in file watcher');
+
+            if (!isSchema) return;
+
+            log('File matched a graphql schema');
+          } catch (error) {
+            // GraphQL Codegen handles logging useful errors
+            log('Schema check failed in file watcher');
+          }
+        }
 
         try {
           await generateWithOverride(configOverrideWatcher);
