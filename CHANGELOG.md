@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.0.1...v2.1.0) (2022-08-25)
+
+
+### Bug Fixes
+
+* Changes package.json to module ([386a875](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/386a875c4703f0c32daf139365567ae1d071e32a))
+
+
+### Features
+
+* Adds schema to the isGraphQLDocument check ([76ae403](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/76ae403afe58e02f315aa4141af7c93d44a75032))
+
 ## [2.0.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.0.0...v2.0.1) (2022-08-24)
 
 
