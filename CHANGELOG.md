@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.2.0...v2.2.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* removes module export ([1872545](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/18725450c9cdcc990e0af3de5e9e1046087d3a08))
+
 # [2.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.1.1...v2.2.0) (2022-08-25)
 
 
