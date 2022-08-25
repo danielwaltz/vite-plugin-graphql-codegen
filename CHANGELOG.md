@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.1.0...v2.1.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* fix package exports path ([d519d15](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/d519d156f999613a3b128ee68270fb9ee880994e))
+
 # [2.1.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.0.1...v2.1.0) (2022-08-25)
 
 
