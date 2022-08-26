@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.2.1...v2.3.0) (2022-08-26)
+
+
+### Features
+
+* add option for enabling matching on schemas ([e4b57f1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/e4b57f15d8d9140f0a05705f3f1cfe3fd1c927bd))
+
 ## [2.2.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.2.0...v2.2.1) (2022-08-25)
 
 
