@@ -46,6 +46,10 @@ codegen({
   runOnBuild: true,
   /* Should codegen run when files get added or change. Defaults to true. */
   enableWatcher: true,
+  /* Run codegen when a document matches. */
+  matchOnDocuments: true,
+  /* Run codegen when a schema matches. Only supports file path based schemas. */
+  matchOnSchemas: false,
   /* Allows manually defining the codegen config instead of relying on cosmiconfig. */
   config: CodegenConfig,
   /* Allows overriding codegen config options in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
