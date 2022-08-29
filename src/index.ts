@@ -1,8 +1,11 @@
 import { Plugin } from 'vite';
 import { CodegenContext, generate, loadContext } from '@graphql-codegen/cli';
 import { Types } from '@graphql-codegen/plugin-helpers';
-import { isCodegenConfig } from '@/utils/isCodegenConfig';
-import { isGraphQLDocument, isGraphQLSchema } from '@/utils/fileMatchers';
+import {
+  isCodegenConfig,
+  isGraphQLDocument,
+  isGraphQLSchema,
+} from '@/utils/fileMatchers';
 import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
 import { debugLog } from '@/utils/debugLog';
 

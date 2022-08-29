@@ -2,6 +2,13 @@ import { normalizePath } from 'vite';
 import { CodegenContext } from '@graphql-codegen/cli';
 import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
+export function isCodegenConfig(
+  filePath: string,
+  context: CodegenContext,
+): boolean {
+  return normalizePath(filePath) === normalizePath(context.filepath);
+}
+
 export async function isGraphQLDocument(
   filePath: string,
   context: CodegenContext,
