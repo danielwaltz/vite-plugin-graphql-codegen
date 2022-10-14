@@ -6,6 +6,8 @@ export function isCodegenConfig(
   filePath: string,
   context: CodegenContext,
 ): boolean {
+  if (!context.filepath) return false;
+
   return normalizePath(filePath) === normalizePath(context.filepath);
 }
 
