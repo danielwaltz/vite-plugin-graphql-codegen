@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.3.0...v2.3.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* skip codegen config file check if filepath is not defined ([4b89289](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/4b8928963e9725951b55a3f6c617b2318a21b108)), closes [#13](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/13)
+
 # [2.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.2.1...v2.3.0) (2022-08-26)
 
 
