@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.0.0...v3.0.1) (2022-12-12)
+
+
+### Bug Fixes
+
+* fix plugin type issue ([7cb46b7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/7cb46b709cfa15fc3ca8e241b83228d67ee9c78c))
+
 # [3.0.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v2.3.1...v3.0.0) (2022-12-09)
 
 
