@@ -66,7 +66,7 @@ export interface Options {
   debug?: boolean;
 }
 
-export default function VitePluginGraphQLCodegen(options?: Options) {
+export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
 
