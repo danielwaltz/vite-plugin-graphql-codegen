@@ -1,3 +1,15 @@
+# [3.1.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.0.1...v3.1.0) (2023-02-04)
+
+
+### Bug Fixes
+
+* add missing babel peer dep ([f01765d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/f01765df9c6c3851db18b25c71a6d788f9dfe24c))
+
+
+### Features
+
+* support graphql codegen v3.0.0 ([9b8cea4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/9b8cea4786f229eb7c0255293735894564aa714b))
+
 ## [3.0.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.0.0...v3.0.1) (2022-12-12)
 
 
