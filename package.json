@@ -50,6 +50,7 @@
     "vite": "^2.7.0 || ^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
     "@graphql-codegen/cli": "^3.0.0",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
