@@ -51,24 +51,24 @@
     "vite": "^2.7.0 || ^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@graphql-codegen/cli": "^3.0.0",
+    "@babel/core": "^7.21.0",
+    "@graphql-codegen/cli": "^3.2.1",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
-    "@types/node": "^18.14.0",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
-    "eslint": "^8.34.0",
+    "@types/node": "~18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "prettier": "^2.8.4",
-    "semantic-release": "^20.1.0",
+    "semantic-release": "^20.1.1",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",
-    "vite": "^4.1.2"
+    "vite": "^4.1.4"
   }
 }
