@@ -21,7 +21,7 @@ pnpm i -D vite-plugin-graphql-codegen
 
 ## Initialize Plugin
 
-```js
+```ts
 # vite.config.ts
 
 import { defineConfig } from 'vite';
@@ -29,7 +29,7 @@ import codegen from 'vite-plugin-graphql-codegen';
 
 export default defineConfig({
   plugins: [
-    codegen()
+    codegen(),
   ],
 });
 ```
@@ -38,7 +38,7 @@ export default defineConfig({
 
 Providing options is not required as sensible defaults are in place, but there may be times where it's helpful to disable codegen under certain circumstances, like when running builds in CI.
 
-```js
+```ts
 codegen({
   /* Should codegen run when the dev server starts. Defaults to true. */
   runOnStart: true,
