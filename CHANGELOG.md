@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.1.0...v3.2.0) (2023-04-05)
+
+
+### Features
+
+* add options for error throwing on server start or build ([4654dde](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/4654dde1606520c94b86a404fc2fb291c850b9a7)), closes [#15](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/15)
+
 # [3.1.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.0.1...v3.1.0) (2023-02-04)
 
 
