@@ -42,10 +42,14 @@ Providing options is not required as sensible defaults are in place, but there m
 codegen({
   /* Should codegen run when the dev server starts. Defaults to true. */
   runOnStart: true,
-  /* Should codegen run on build. Will prevent build if codegen fails. Defaults to true. */
+  /* Should codegen run on build. Defaults to true. */
   runOnBuild: true,
   /* Should codegen run when files get added or change. Defaults to true. */
   enableWatcher: true,
+  /* Should an error throw if codegen fails when the dev server starts. Defaults to false. */
+  throwOnStart: false,
+  /* Should an error throw if codegen fails on build. Defaults to true. */
+  throwOnBuild: true,
   /* Run codegen when a document matches. */
   matchOnDocuments: true,
   /* Run codegen when a schema matches. Only supports file path based schemas. */

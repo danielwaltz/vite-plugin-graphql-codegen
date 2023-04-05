@@ -26,6 +26,16 @@ export interface Options {
    */
   enableWatcher?: boolean;
   /**
+   * Throw an error if codegen fails on server start.
+   * @defaultValue `false`
+   */
+  throwOnStart?: boolean;
+  /**
+   * Throw an error if codegen fails on build.
+   * @defaultValue `true`
+   */
+  throwOnBuild?: boolean;
+  /**
    * Run codegen when a document matches.
    * @defaultValue `true`
    */
@@ -74,6 +84,8 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     runOnStart = true,
     runOnBuild = true,
     enableWatcher = true,
+    throwOnStart = false,
+    throwOnBuild = true,
     matchOnDocuments = true,
     matchOnSchemas = false,
     config = null,
@@ -104,7 +116,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     });
   };
 
-  log('Plugin initialized with options:', options);
+  if (options) log('Plugin initialized with options:', options);
 
   return {
     name: 'graphql-codegen',
@@ -127,25 +139,30 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
       viteMode = env.command;
     },
     async buildStart() {
-      const isServe = isServeMode(viteMode);
-      const isBuild = isBuildMode(viteMode);
+      if (isServeMode(viteMode)) {
+        if (!runOnStart) return;
 
-      if (isServe && !runOnStart) return;
-      if (isBuild && !runOnBuild) return;
+        try {
+          await generateWithOverride(configOverrideOnStart);
+          log('Generation successful on start');
+        } catch (error) {
+          // GraphQL Codegen handles logging useful errors
+          log('Generation failed on start');
+          if (throwOnStart) throw error;
+        }
+      }
 
-      try {
-        if (isServe) await generateWithOverride(configOverrideOnStart);
-        if (isBuild) await generateWithOverride(configOverrideOnBuild);
+      if (isBuildMode(viteMode)) {
+        if (!runOnBuild) return;
 
-        isServe && log('Generation successful on start');
-        isBuild && log('Generation successful on build');
-      } catch (error) {
-        // GraphQL Codegen handles logging useful errors
-        isServe && log('Generation failed on start');
-        isBuild && log('Generation failed on build');
-
-        // Prevent build if codegen fails
-        if (isBuild) throw error;
+        try {
+          await generateWithOverride(configOverrideOnBuild);
+          log('Generation successful on build');
+        } catch (error) {
+          // GraphQL Codegen handles logging useful errors
+          log('Generation failed on build');
+          if (throwOnBuild) throw error;
+        }
       }
     },
     configureServer(server) {
