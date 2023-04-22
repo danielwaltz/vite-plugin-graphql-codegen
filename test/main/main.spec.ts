@@ -6,7 +6,8 @@ import codegen from '../../src/index';
 const TEST_PATH = './test/main' as const;
 const DOCUMENT_PATH = `${TEST_PATH}/graphql` as const;
 const OUTPUT_PATH = `${TEST_PATH}/generated` as const;
-const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts` as const;
+const OUTPUT_FILE_NAME = 'graphql.ts' as const;
+const OUTPUT_FILE = `${OUTPUT_PATH}/${OUTPUT_FILE_NAME}` as const;
 
 const viteConfig = {
   plugins: [
@@ -18,6 +19,16 @@ const viteConfig = {
 
 describe('main', () => {
   let viteServer: ViteDevServer | null = null;
+
+  const fileGenerated = () => {
+    return new Promise<void>((resolve, reject) => {
+      viteServer?.watcher.on('add', (path: string) => {
+        if (path.includes(OUTPUT_FILE_NAME)) resolve();
+      });
+
+      setTimeout(() => reject('Generated file not found'), 2000);
+    });
+  };
 
   beforeAll(async () => {
     await fs.mkdir(DOCUMENT_PATH, { recursive: true });
@@ -46,7 +57,7 @@ describe('main', () => {
 
     await fs.writeFile(documentPath, 'query Bar { bar }');
 
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await fileGenerated();
 
     const file = await fs.readFile(OUTPUT_FILE, 'utf-8');
 
@@ -58,7 +69,7 @@ describe('main', () => {
 
     await fs.writeFile(documentPath, 'query Foo { foo bar }');
 
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await fileGenerated();
 
     const file = await fs.readFile(OUTPUT_FILE, 'utf-8');
 
