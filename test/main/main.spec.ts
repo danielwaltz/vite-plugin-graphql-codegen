@@ -20,12 +20,19 @@ const viteConfig = {
 describe('main', () => {
   let viteServer: ViteDevServer | null = null;
 
-  const fileGenerated = async () => {
-    if (!viteServer) throw new Error('Vite server not started');
+  const isFileGenerated = async (): Promise<boolean> => {
+    try {
+      await fs.access(OUTPUT_FILE);
+      return true;
+    } catch (error) {
+      // ignore
+    }
 
-    return new Promise<void>((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+      if (!viteServer) reject('Vite server not started');
+
       viteServer?.watcher.on('add', (path: string) => {
-        if (path.includes(OUTPUT_FILE_NAME)) resolve();
+        if (path.includes(OUTPUT_FILE_NAME)) resolve(true);
       });
 
       setTimeout(() => reject('Generated file not found'), 15000);
@@ -59,7 +66,7 @@ describe('main', () => {
 
     await fs.writeFile(documentPath, 'query Bar { bar }');
 
-    await fileGenerated();
+    await isFileGenerated();
 
     const file = await fs.readFile(OUTPUT_FILE, 'utf-8');
 
@@ -71,7 +78,7 @@ describe('main', () => {
 
     await fs.writeFile(documentPath, 'query Foo { foo bar }');
 
-    await fileGenerated();
+    await isFileGenerated();
 
     const file = await fs.readFile(OUTPUT_FILE, 'utf-8');
 
