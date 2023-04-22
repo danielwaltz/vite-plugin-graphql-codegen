@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { createServer, UserConfig, ViteDevServer } from 'vite';
-import { promises as fs } from 'fs';
+import { promises as fs } from 'node:fs';
 import codegen, { type Options } from '../../src/index';
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
