@@ -4,8 +4,9 @@ import { promises as fs } from 'fs';
 import codegen, { type Options } from '../../src/index';
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
-const OUTPUT_PATH = './test/minimal/generated';
-const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts`;
+const TEST_PATH = './test/minimal' as const;
+const OUTPUT_PATH = `${TEST_PATH}/generated` as const;
+const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts` as const;
 
 const codegenConfig = {
   schema: `

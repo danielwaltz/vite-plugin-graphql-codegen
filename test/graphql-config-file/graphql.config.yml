@@ -1,0 +1,9 @@
+schema: ./test/graphql-config-file/schema.graphql
+documents: ./test/graphql-config-file/graphql/**/*.graphql
+extensions:
+  codegen:
+    generates:
+      ./test/graphql-config-file/generated/graphql.ts:
+        plugins:
+          - typescript
+          - typescript-operations
