@@ -5,10 +5,14 @@ export type ViteMode = ConfigEnv['command'];
 const modes = {
   serve: 'serve',
   build: 'build',
-} as const satisfies { [K in ViteMode]: K };
+} as { [K in ViteMode]: K };
 
-export const isServeMode = (mode: ViteMode): mode is typeof modes.serve =>
-  mode === modes.serve;
+const { serve, build } = modes;
 
-export const isBuildMode = (mode: ViteMode): mode is typeof modes.build =>
-  mode === modes.build;
+export function isServeMode(mode: ViteMode): mode is typeof serve {
+  return mode === serve;
+}
+
+export function isBuildMode(mode: ViteMode): mode is typeof build {
+  return mode === build;
+}
