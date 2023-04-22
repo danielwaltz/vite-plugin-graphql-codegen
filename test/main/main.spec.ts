@@ -35,7 +35,7 @@ describe('main', () => {
         if (path.includes(OUTPUT_FILE_NAME)) resolve(true);
       });
 
-      setTimeout(() => reject('Generated file not found'), 15000);
+      setTimeout(() => reject('Generated file not found'), 5000);
     });
   };
 
