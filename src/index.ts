@@ -5,9 +5,9 @@ import {
   isCodegenConfig,
   isGraphQLDocument,
   isGraphQLSchema,
-} from '@/utils/fileMatchers';
-import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
-import { debugLog } from '@/utils/debugLog';
+} from './utils/fileMatchers';
+import { ViteMode, isServeMode, isBuildMode } from './utils/viteModes';
+import { debugLog } from './utils/debugLog';
 
 export interface Options {
   /**
