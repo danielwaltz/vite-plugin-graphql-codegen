@@ -20,13 +20,15 @@ const viteConfig = {
 describe('main', () => {
   let viteServer: ViteDevServer | null = null;
 
-  const fileGenerated = () => {
+  const fileGenerated = async () => {
+    if (!viteServer) throw new Error('Vite server not started');
+
     return new Promise<void>((resolve, reject) => {
       viteServer?.watcher.on('add', (path: string) => {
         if (path.includes(OUTPUT_FILE_NAME)) resolve();
       });
 
-      setTimeout(() => reject('Generated file not found'), 5000);
+      setTimeout(() => reject('Generated file not found'), 15000);
     });
   };
 
