@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import codegen, { type Options } from '../../src/index';
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
-const TEST_PATH = './test/minimal' as const;
+const TEST_PATH = './test/inline-config' as const;
 const OUTPUT_PATH = `${TEST_PATH}/generated` as const;
 const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts` as const;
 
@@ -34,7 +34,7 @@ const viteConfig = {
   plugins: [codegen(pluginConfig)],
 } satisfies UserConfig;
 
-describe('minimal', () => {
+describe('inline-config', () => {
   let viteServer: ViteDevServer | null = null;
 
   beforeAll(async () => {
