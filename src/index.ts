@@ -187,7 +187,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
             );
             log('Document check successful in file watcher');
 
-            if (!isDocument) return;
+            if (!isDocument && !matchOnSchemas) return;
 
             log('File matched a graphql document');
           } catch (error) {
