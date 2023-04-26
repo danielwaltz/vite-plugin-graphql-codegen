@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.0...v3.2.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* fix watching schema while also watching documents ([8cd00ea](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/8cd00ea43479fb02a4640ecc07afdeb35a88f307))
+
 # [3.2.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.1.0...v3.2.0) (2023-04-05)
 
 
