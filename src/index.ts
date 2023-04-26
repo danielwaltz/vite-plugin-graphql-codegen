@@ -76,6 +76,15 @@ export interface Options {
   debug?: boolean;
 }
 
+interface Matcher {
+  matcher: (
+    filePath: string,
+    codegenContext: CodegenContext,
+  ) => Promise<boolean>;
+  type: string;
+  shouldRun: boolean;
+}
+
 export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
@@ -179,35 +188,36 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
           return;
         }
 
-        if (matchOnDocuments) {
-          try {
-            const isDocument = await isGraphQLDocument(
-              filePath,
-              codegenContext,
-            );
-            log('Document check successful in file watcher');
-
-            if (!isDocument && !matchOnSchemas) return;
-
-            log('File matched a graphql document');
-          } catch (error) {
-            // GraphQL Codegen handles logging useful errors
-            log('Document check failed in file watcher');
-          }
-        }
-
-        if (matchOnSchemas) {
-          try {
-            const isSchema = await isGraphQLSchema(filePath, codegenContext);
-            log('Schema check successful in file watcher');
-
-            if (!isSchema) return;
-
-            log('File matched a graphql schema');
-          } catch (error) {
-            // GraphQL Codegen handles logging useful errors
-            log('Schema check failed in file watcher');
-          }
+        if (matchOnDocuments || matchOnSchemas) {
+          const matchers: Matcher[] = [
+            {
+              matcher: isGraphQLDocument,
+              type: 'document',
+              shouldRun: matchOnDocuments,
+            },
+            {
+              matcher: isGraphQLSchema,
+              type: 'schema',
+              shouldRun: matchOnSchemas,
+            },
+          ];
+          const matchResults = await Promise.all(
+            matchers.map(async ({ matcher, type, shouldRun }) => {
+              if (!shouldRun) return false;
+              try {
+                const matched = await matcher(filePath, codegenContext);
+                log(`${type} check successful in file watcher`);
+                if (!matched) return false;
+                log(`File matched a graphql ${type}`);
+                return true;
+              } catch (e) {
+                // GraphQL Codegen handles logging useful errors
+                log(`${type} check failed in file watcher`);
+              }
+              return false;
+            }),
+          );
+          if (!matchResults.some((matched) => matched)) return;
         }
 
         try {
