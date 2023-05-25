@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.1...v3.2.2) (2023-05-25)
+
+
+### Bug Fixes
+
+* add @graphql-codegen/cli@^4.0.0 as peer dependency ([fba8d5a](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/fba8d5a144cba26efc10b7ddf674863c722feb76))
+
 ## [3.2.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.0...v3.2.1) (2023-04-26)
 
 
