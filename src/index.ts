@@ -5,9 +5,11 @@ import {
   isCodegenConfig,
   isGraphQLDocument,
   isGraphQLSchema,
-} from './utils/fileMatchers';
-import { ViteMode, isServeMode, isBuildMode } from './utils/viteModes';
-import { debugLog } from './utils/debugLog';
+} from '@/utils/fileMatchers';
+import { ViteMode, isServeMode, isBuildMode } from '@/utils/viteModes';
+import { debugLog } from '@/utils/debugLog';
+
+type CodegenConfig = Types.Config;
 
 export interface Options {
   /**
@@ -48,23 +50,23 @@ export interface Options {
   /**
    * Manually define the codegen config.
    */
-  config?: Types.Config;
+  config?: CodegenConfig;
   /**
    * Override parts of the codegen config just for this plugin.
    */
-  configOverride?: Partial<Types.Config>;
+  configOverride?: Partial<CodegenConfig>;
   /**
    * Override parts of the codegen config just for this plugin on server start.
    */
-  configOverrideOnStart?: Partial<Types.Config>;
+  configOverrideOnStart?: Partial<CodegenConfig>;
   /**
    * Override parts of the codegen config just for this plugin on build.
    */
-  configOverrideOnBuild?: Partial<Types.Config>;
+  configOverrideOnBuild?: Partial<CodegenConfig>;
   /**
    * Override parts of the codegen config just for this plugin in the watcher.
    */
-  configOverrideWatcher?: Partial<Types.Config>;
+  configOverrideWatcher?: Partial<CodegenConfig>;
   /**
    * Override the codegen config file path.
    */
@@ -103,7 +105,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
   };
 
   const generateWithOverride = async (
-    overrideConfig: Partial<Types.Config>,
+    overrideConfig: Partial<CodegenConfig>,
   ) => {
     const currentConfig = codegenContext.getConfig();
 
