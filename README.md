@@ -40,33 +40,69 @@ Providing options is not required as sensible defaults are in place, but there m
 
 ```ts
 codegen({
-  /* Should codegen run when the dev server starts. Defaults to true. */
-  runOnStart: true,
-  /* Should codegen run on build. Defaults to true. */
-  runOnBuild: true,
-  /* Should codegen run when files get added or change. Defaults to true. */
-  enableWatcher: true,
-  /* Should an error throw if codegen fails when the dev server starts. Defaults to false. */
-  throwOnStart: false,
-  /* Should an error throw if codegen fails on build. Defaults to true. */
-  throwOnBuild: true,
-  /* Run codegen when a document matches. */
-  matchOnDocuments: true,
-  /* Run codegen when a schema matches. Only supports file path based schemas. */
-  matchOnSchemas: false,
-  /* Allows manually defining the codegen config instead of relying on cosmiconfig. */
-  config: CodegenConfig,
-  /* Allows overriding codegen config options in the context of this plugin. Useful if you prefer a cleaner log by passing { errorsOnly: true }. */
-  configOverride: CodegenConfig,
-  /* Overrides config on server start. */
-  configOverrideOnStart: CodegenConfig,
-  /* Overrides config on build. */
-  configOverrideOnBuild: CodegenConfig,
-  /* Overrides config for the watcher. */
-  configOverrideWatcher: CodegenConfig,
-  /* Allows overriding the codegen config file path. */
-  configFilePathOverride: `${process.cwd()}/codegen.yml`,
-  /* Enable plugin logging to assist in debugging. Defaults to false. */
-  debug: false,
+  /**
+   * Run codegen on server start.
+   * @defaultValue `true`
+   */
+  runOnStart?: boolean;
+  /**
+   * Run codegen on build. Will prevent build if codegen fails.
+   * @defaultValue `true`
+   */
+  runOnBuild?: boolean;
+  /**
+   * Enable codegen integration with vite file watcher.
+   * @defaultValue `true`
+   */
+  enableWatcher?: boolean;
+  /**
+   * Throw an error if codegen fails on server start.
+   * @defaultValue `false`
+   */
+  throwOnStart?: boolean;
+  /**
+   * Throw an error if codegen fails on build.
+   * @defaultValue `true`
+   */
+  throwOnBuild?: boolean;
+  /**
+   * Run codegen when a document matches.
+   * @defaultValue `true`
+   */
+  matchOnDocuments?: boolean;
+  /**
+   * Run codegen when a schema matches. Only supports file path based schemas.
+   * @defaultValue `false`
+   */
+  matchOnSchemas?: boolean;
+  /**
+   * Manually define the codegen config.
+   */
+  config?: CodegenConfig;
+  /**
+   * Override parts of the codegen config just for this plugin.
+   */
+  configOverride?: Partial<CodegenConfig>;
+  /**
+   * Override parts of the codegen config just for this plugin on server start.
+   */
+  configOverrideOnStart?: Partial<CodegenConfig>;
+  /**
+   * Override parts of the codegen config just for this plugin on build.
+   */
+  configOverrideOnBuild?: Partial<CodegenConfig>;
+  /**
+   * Override parts of the codegen config just for this plugin in the watcher.
+   */
+  configOverrideWatcher?: Partial<CodegenConfig>;
+  /**
+   * Override the codegen config file path.
+   */
+  configFilePathOverride?: string;
+  /**
+   * Log various steps to aid in tracking down bugs.
+   * @defaultValue `false`
+   */
+  debug?: boolean;
 });
 ```
