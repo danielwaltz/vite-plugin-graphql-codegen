@@ -1,3 +1,10 @@
+### [3.2.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.2...v3.2.3) (2023-07-25)
+
+
+### Bug Fixes
+
+* add v5.0.0 to codegen cli peer deps definition ([c67977e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c67977e814ad1e140347f2bc729c219778a129f1))
+
 ## [3.2.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.1...v3.2.2) (2023-05-25)
 
 
