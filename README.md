@@ -22,7 +22,7 @@ pnpm i -D vite-plugin-graphql-codegen
 ## Initialize Plugin
 
 ```ts
-# vite.config.ts
+// vite.config.ts
 
 import { defineConfig } from 'vite';
 import codegen from 'vite-plugin-graphql-codegen';
@@ -42,36 +42,43 @@ Providing options is not required as sensible defaults are in place, but there m
 codegen({
   /**
    * Run codegen on server start.
+   *
    * @defaultValue `true`
    */
   runOnStart?: boolean;
   /**
    * Run codegen on build. Will prevent build if codegen fails.
+   *
    * @defaultValue `true`
    */
   runOnBuild?: boolean;
   /**
    * Enable codegen integration with vite file watcher.
+   *
    * @defaultValue `true`
    */
   enableWatcher?: boolean;
   /**
    * Throw an error if codegen fails on server start.
+   *
    * @defaultValue `false`
    */
   throwOnStart?: boolean;
   /**
    * Throw an error if codegen fails on build.
+   *
    * @defaultValue `true`
    */
   throwOnBuild?: boolean;
   /**
    * Run codegen when a document matches.
+   *
    * @defaultValue `true`
    */
   matchOnDocuments?: boolean;
   /**
    * Run codegen when a schema matches. Only supports file path based schemas.
+   *
    * @defaultValue `false`
    */
   matchOnSchemas?: boolean;
@@ -101,6 +108,7 @@ codegen({
   configFilePathOverride?: string;
   /**
    * Log various steps to aid in tracking down bugs.
+   *
    * @defaultValue `false`
    */
   debug?: boolean;

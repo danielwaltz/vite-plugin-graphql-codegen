@@ -14,36 +14,43 @@ type CodegenConfig = Types.Config;
 export interface Options {
   /**
    * Run codegen on server start.
+   *
    * @defaultValue `true`
    */
   runOnStart?: boolean;
   /**
    * Run codegen on build. Will prevent build if codegen fails.
+   *
    * @defaultValue `true`
    */
   runOnBuild?: boolean;
   /**
    * Enable codegen integration with vite file watcher.
+   *
    * @defaultValue `true`
    */
   enableWatcher?: boolean;
   /**
    * Throw an error if codegen fails on server start.
+   *
    * @defaultValue `false`
    */
   throwOnStart?: boolean;
   /**
    * Throw an error if codegen fails on build.
+   *
    * @defaultValue `true`
    */
   throwOnBuild?: boolean;
   /**
    * Run codegen when a document matches.
+   *
    * @defaultValue `true`
    */
   matchOnDocuments?: boolean;
   /**
    * Run codegen when a schema matches. Only supports file path based schemas.
+   *
    * @defaultValue `false`
    */
   matchOnSchemas?: boolean;
@@ -73,6 +80,7 @@ export interface Options {
   configFilePathOverride?: string;
   /**
    * Log various steps to aid in tracking down bugs.
+   *
    * @defaultValue `false`
    */
   debug?: boolean;
