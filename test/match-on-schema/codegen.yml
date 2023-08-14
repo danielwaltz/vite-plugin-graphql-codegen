@@ -1,0 +1,7 @@
+schema: ./test/match-on-schema/schema.graphql
+documents: ./test/match-on-schema/graphql/**/*.graphql
+generates:
+  ./test/match-on-schema/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
