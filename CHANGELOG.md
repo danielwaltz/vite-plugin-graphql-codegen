@@ -1,3 +1,10 @@
+### [3.2.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.3...v3.2.4) (2023-08-14)
+
+
+### Bug Fixes
+
+* fix matching on schema changes ([43ee458](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/43ee4582aa2c551c36c092baf777da9c70629e99)), closes [#21](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/21)
+
 ### [3.2.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.2...v3.2.3) (2023-07-25)
 
 
