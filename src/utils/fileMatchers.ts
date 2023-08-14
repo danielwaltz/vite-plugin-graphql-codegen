@@ -15,20 +15,20 @@ export async function isGraphQLDocument(
   filePath: string,
   context: CodegenContext,
 ): Promise<boolean> {
-  const paths = await getDocumentPaths(context);
+  const documentPaths = await getDocumentPaths(context);
 
-  if (!paths.length) return false;
+  if (!documentPaths.length) return false;
 
-  return paths.some((documentPath) => documentPath === normalizePath(filePath));
+  return documentPaths.some((path) => path === normalizePath(filePath));
 }
 
 export async function isGraphQLSchema(
   filePath: string,
   context: CodegenContext,
 ): Promise<boolean> {
-  const paths = await getSchemaPaths(context);
+  const schemaPaths = await getSchemaPaths(context);
 
-  if (!paths.length) return false;
+  if (!schemaPaths.length) return false;
 
-  return paths.some((schemaPath) => schemaPath === normalizePath(filePath));
+  return schemaPaths.some((path) => normalizePath(filePath).includes(path));
 }
