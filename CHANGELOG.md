@@ -1,3 +1,10 @@
+### [3.2.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.4...v3.2.5) (2023-08-18)
+
+
+### Bug Fixes
+
+* add `@graphql-codegen/plugin-helpers` to dependencies ([e58be01](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/e58be018b1c6dff8a4cfd73770d20d630ed0873b)), closes [#22](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/22)
+
 ### [3.2.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.3...v3.2.4) (2023-08-14)
 
 
