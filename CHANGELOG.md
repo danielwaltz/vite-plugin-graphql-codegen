@@ -1,3 +1,10 @@
+## [3.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.5...v3.3.0) (2023-08-19)
+
+
+### Features
+
+* run schema and document checks at the same time ([aa8c92c](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/aa8c92cd3a8236a06a2870472ab3fe3167b2a2f9)), closes [#21](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/21)
+
 ### [3.2.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.4...v3.2.5) (2023-08-18)
 
 
