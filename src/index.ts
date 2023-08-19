@@ -6,6 +6,7 @@ import {
   loadContext,
 } from '@graphql-codegen/cli';
 import {
+  type FileMatcher,
   isCodegenConfig,
   isGraphQLDocument,
   isGraphQLSchema,
@@ -183,7 +184,7 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
       const listener = async (filePath = '') => {
         log('File changed:', filePath);
 
-        const isConfig = isCodegenConfig(filePath, codegenContext);
+        const isConfig = await isCodegenConfig(filePath, codegenContext);
 
         if (isConfig) {
           log('Codegen config file changed, restarting vite');
@@ -191,36 +192,42 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
           return;
         }
 
-        if (matchOnDocuments) {
-          try {
-            const isDocument = await isGraphQLDocument(
-              filePath,
-              codegenContext,
-            );
-            log('Document check successful in file watcher');
+        const matchers: [
+          enabled: boolean,
+          name: string,
+          matcher: FileMatcher,
+        ][] = [
+          [matchOnDocuments, 'document', isGraphQLDocument],
+          [matchOnSchemas, 'schema', isGraphQLSchema],
+        ];
 
-            if (!isDocument && !matchOnSchemas) return;
+        const matcherResults = await Promise.all(
+          matchers.map(async ([enabled, name, matcher]) => {
+            if (!enabled) {
+              log(`Check for ${name} file skipped in file watcher by config`);
+              return false;
+            }
 
-            log('File matched a graphql document');
-          } catch (error) {
-            // GraphQL Codegen handles logging useful errors
-            log('Document check failed in file watcher');
-          }
-        }
+            try {
+              const isMatch = await matcher(filePath, codegenContext);
 
-        if (matchOnSchemas) {
-          try {
-            const isSchema = await isGraphQLSchema(filePath, codegenContext);
-            log('Schema check successful in file watcher');
+              log(`Check for ${name} file successful in file watcher`);
 
-            if (!isSchema) return;
+              if (isMatch) log(`File matched a graphql ${name}`);
+              else log(`File did not match a graphql ${name}`);
 
-            log('File matched a graphql schema');
-          } catch (error) {
-            // GraphQL Codegen handles logging useful errors
-            log('Schema check failed in file watcher');
-          }
-        }
+              return isMatch;
+            } catch (error) {
+              // GraphQL Codegen handles logging useful errors
+              log(`Check for ${name} file failed in file watcher`);
+              return false;
+            }
+          }),
+        );
+
+        const isMatch = matcherResults.some((result) => result);
+
+        if (!isMatch) return;
 
         try {
           await generateWithOverride(configOverrideWatcher);
