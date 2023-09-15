@@ -1,3 +1,10 @@
+### [3.3.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.0...v3.3.1) (2023-09-15)
+
+
+### Bug Fixes
+
+* match on relative document paths ([ff11873](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/ff118734567f0ae2cf55132bd030cad682a6a959)), closes [#23](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/23)
+
 ## [3.3.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.2.5...v3.3.0) (2023-08-19)
 
 
