@@ -18,7 +18,9 @@ export const isGraphQLDocument: FileMatcher = async (filePath, context) => {
 
   if (!documentPaths.length) return false;
 
-  return documentPaths.some((path) => path === normalizePath(filePath));
+  const normalizedFilePath = normalizePath(filePath);
+
+  return documentPaths.some((path) => normalizedFilePath.includes(path));
 };
 
 export const isGraphQLSchema: FileMatcher = async (filePath, context) => {
@@ -26,5 +28,7 @@ export const isGraphQLSchema: FileMatcher = async (filePath, context) => {
 
   if (!schemaPaths.length) return false;
 
-  return schemaPaths.some((path) => normalizePath(filePath).includes(path));
+  const normalizedFilePath = normalizePath(filePath);
+
+  return schemaPaths.some((path) => normalizedFilePath.includes(path));
 };
