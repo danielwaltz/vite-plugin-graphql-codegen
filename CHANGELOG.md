@@ -1,3 +1,10 @@
+### [3.3.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.1...v3.3.2) (2023-11-16)
+
+
+### Bug Fixes
+
+* add vite 5 as supported peer and update deps ([f2000e5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/f2000e5ada65fadaf4bc0c96509d4aff7234efb3))
+
 ### [3.3.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.0...v3.3.1) (2023-09-15)
 
 
