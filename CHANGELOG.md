@@ -1,3 +1,10 @@
+### [3.3.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.2...v3.3.3) (2023-11-17)
+
+
+### Bug Fixes
+
+* broaden allowed vite dependency versions ([3b2bf38](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/3b2bf38f8fb29541eafca39fa87ed462497a2986))
+
 ### [3.3.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.1...v3.3.2) (2023-11-16)
 
 
