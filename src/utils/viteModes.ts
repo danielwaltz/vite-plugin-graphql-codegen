@@ -1,4 +1,4 @@
-import { ConfigEnv } from 'vite';
+import type { ConfigEnv } from 'vite';
 
 export type ViteMode = ConfigEnv['command'];
 

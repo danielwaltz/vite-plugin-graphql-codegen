@@ -1,5 +1,5 @@
 import { normalizePath } from 'vite';
-import { type CodegenContext } from '@graphql-codegen/cli';
+import type { CodegenContext } from '@graphql-codegen/cli';
 import { getDocumentPaths, getSchemaPaths } from '@/utils/configPaths';
 
 export type FileMatcher = (

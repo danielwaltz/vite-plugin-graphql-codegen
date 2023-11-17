@@ -1,5 +1,5 @@
 import { normalizePath } from 'vite';
-import { type CodegenContext } from '@graphql-codegen/cli';
+import type { CodegenContext } from '@graphql-codegen/cli';
 import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
 export async function getDocumentPaths(
