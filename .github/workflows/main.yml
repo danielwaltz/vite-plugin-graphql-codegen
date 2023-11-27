@@ -14,6 +14,8 @@ jobs:
       - run: npm run type-check
       # - run: npm run test
       - run: npm run build
+      - run: npx publint@latest
+      - run: npx @arethetypeswrong/cli@latest --pack
   release:
     runs-on: ubuntu-latest
     needs: test
