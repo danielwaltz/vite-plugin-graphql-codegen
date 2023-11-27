@@ -1,3 +1,10 @@
+### [3.3.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.3...v3.3.4) (2023-11-27)
+
+
+### Bug Fixes
+
+* support esm ([951c1bb](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/951c1bbca24da07df898c566cb810bab6b1ae222))
+
 ### [3.3.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.2...v3.3.3) (2023-11-17)
 
 
