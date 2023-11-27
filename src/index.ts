@@ -10,9 +10,9 @@ import {
   isCodegenConfig,
   isGraphQLDocument,
   isGraphQLSchema,
-} from '@/utils/fileMatchers';
-import { isBuildMode, isServeMode, type ViteMode } from '@/utils/viteModes';
-import { debugLog } from '@/utils/debugLog';
+} from './utils/fileMatchers';
+import { isBuildMode, isServeMode, type ViteMode } from './utils/viteModes';
+import { debugLog } from './utils/debugLog';
 
 export interface Options {
   /**
@@ -89,7 +89,7 @@ export interface Options {
   debug?: boolean;
 }
 
-export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
+export function GraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
 
@@ -243,3 +243,5 @@ export default function VitePluginGraphQLCodegen(options?: Options): Plugin {
     },
   } as const satisfies Plugin;
 }
+
+export default GraphQLCodegen;

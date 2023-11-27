@@ -18,15 +18,19 @@
     "vite-plugin-graphql-codegen"
   ],
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "release": {
     "branches": [
       "main"
@@ -58,8 +62,8 @@
     ]
   },
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup",
+    "dev": "unbuild --stub",
+    "build": "unbuild",
     "lint": "eslint . --no-fix --ignore-path .gitignore --max-warnings 0",
     "type-check": "tsc --noEmit",
     "test": "vitest",
@@ -93,8 +97,8 @@
     "prettier": "^3.1.0",
     "semantic-release": "^22.0.7",
     "standard-version": "^9.5.0",
-    "tsup": "^7.3.0",
     "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
   }
 }
