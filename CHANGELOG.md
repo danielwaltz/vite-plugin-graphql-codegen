@@ -1,3 +1,10 @@
+### [3.3.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.4...v3.3.5) (2023-11-27)
+
+
+### Bug Fixes
+
+* migrate to unbuild and fix default export issues in commonjs ([24914a2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/24914a2801faa9de81dd66e8e86aa8f54b8a877b))
+
 ### [3.3.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.3...v3.3.4) (2023-11-27)
 
 
