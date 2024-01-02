@@ -1,3 +1,12 @@
+### [3.3.6](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.5...v3.3.6) (2024-01-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** update deps ([063408b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/063408bfd0ef94d5d9db0d35e5555ab1f9bc4a53)), closes [#28](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/28)
+* explicitly add semantic release plugins as deps ([6da889b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/6da889b468d1f4867e4fb2d1a68347a4f4c9fd31))
+* update node to `v20.10.0` and use dedicated release config ([9ccbd00](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/9ccbd0041dd96dc6d61b44bd7002723169a3b267))
+
 ### [3.3.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.4...v3.3.5) (2023-11-27)
 
 
