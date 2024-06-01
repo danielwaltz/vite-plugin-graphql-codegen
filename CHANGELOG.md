@@ -1,3 +1,17 @@
+### [3.3.7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.6...v3.3.7) (2024-06-01)
+
+
+### Bug Fixes
+
+* prepare for vite v6 release ([b49c508](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/b49c5080006c7df2cef9a3505dc74793aaadcadd))
+
+
+### Miscellaneous Chores
+
+* **deps:** refresh lockfile and dedupe deps ([005f81e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/005f81e77c7cfdcc9e86faec86b06d795280f5e8))
+* **deps:** update deps ([6c75534](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/6c755349932a9de4c4cb1f905abc637b77686153))
+* update node to `20.12.1` ([4271cfb](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/4271cfb9f84845035f4bedb1da9d31b5487d0302))
+
 ### [3.3.6](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.5...v3.3.6) (2024-01-02)
 
 
