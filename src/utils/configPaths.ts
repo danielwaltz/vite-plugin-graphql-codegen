@@ -1,15 +1,24 @@
 import { normalizePath } from 'vite';
 import type { CodegenContext } from '@graphql-codegen/cli';
-import { normalizeInstanceOrArray } from '@graphql-codegen/plugin-helpers';
 
 export async function getDocumentPaths(
   context: CodegenContext,
 ): Promise<string[]> {
   const config = context.getConfig();
 
-  if (!config.documents) return [];
+  const sourceDocuments = Object.values(config.generates).map((output) =>
+    Array.isArray(output) ? undefined : output.documents,
+  );
 
-  const normalized = normalizeInstanceOrArray(config.documents);
+  if (config.documents) {
+    sourceDocuments.unshift(config.documents);
+  }
+
+  const normalized = sourceDocuments
+    .filter((item): item is NonNullable<typeof item> => !!item)
+    .flat();
+
+  if (!normalized.length) return [];
 
   const documents = await context.loadDocuments(normalized);
 
@@ -26,9 +35,19 @@ export async function getSchemaPaths(
 ): Promise<string[]> {
   const config = context.getConfig();
 
-  if (!config.schema) return [];
+  const sourceSchemas = Object.values(config.generates).map((output) =>
+    Array.isArray(output) ? undefined : output.schema,
+  );
 
-  const schemas = normalizeInstanceOrArray(config.schema);
+  if (config.schema) {
+    sourceSchemas.unshift(config.schema);
+  }
+
+  const schemas = sourceSchemas
+    .filter((item): item is NonNullable<typeof item> => !!item)
+    .flat();
+
+  if (!schemas.length) return [];
 
   return schemas
     .filter((schema): schema is string => typeof schema === 'string')
