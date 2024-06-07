@@ -1,4 +1,5 @@
 import { normalizePath } from 'vite';
+import { resolve } from 'node:path';
 import type { CodegenContext } from '@graphql-codegen/cli';
 
 export async function getDocumentPaths(
@@ -52,5 +53,6 @@ export async function getSchemaPaths(
   return schemas
     .filter((schema): schema is string => typeof schema === 'string')
     .filter(Boolean)
+    .map((schema) => resolve(schema))
     .map(normalizePath);
 }
