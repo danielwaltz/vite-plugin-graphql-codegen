@@ -149,6 +149,13 @@ export function GraphQLCodegen(options?: Options): Plugin {
         throw error;
       }
 
+      if (!matchOnDocuments) {
+        log(`File watcher for documents is disabled by config`);
+      }
+      if (!matchOnSchemas) {
+        log(`File watcher for schemas is disabled by config`);
+      }
+
       viteMode = env.command;
     },
     async buildStart() {
@@ -182,8 +189,6 @@ export function GraphQLCodegen(options?: Options): Plugin {
       if (!enableWatcher) return;
 
       const listener = async (filePath = '') => {
-        log('File changed:', filePath);
-
         const isConfig = await isCodegenConfig(filePath, codegenContext);
 
         if (isConfig) {
@@ -204,22 +209,17 @@ export function GraphQLCodegen(options?: Options): Plugin {
         const matcherResults = await Promise.all(
           matchers.map(async ([enabled, name, matcher]) => {
             if (!enabled) {
-              log(`Check for ${name} file skipped in file watcher by config`);
               return false;
             }
 
             try {
               const isMatch = await matcher(filePath, codegenContext);
-
-              log(`Check for ${name} file successful in file watcher`);
-
-              if (isMatch) log(`File matched a graphql ${name}`);
-              else log(`File did not match a graphql ${name}`);
+              if (isMatch) log(`Graphql ${name} file matched: ${filePath}`);
 
               return isMatch;
             } catch (error) {
               // GraphQL Codegen handles logging useful errors
-              log(`Check for ${name} file failed in file watcher`);
+              log(`Check for ${name} file failed in file watcher: ${filePath}`);
               return false;
             }
           }),
