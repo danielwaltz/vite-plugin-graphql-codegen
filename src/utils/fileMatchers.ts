@@ -20,7 +20,7 @@ export const isGraphQLDocument: FileMatcher = async (filePath, context) => {
 
   const normalizedFilePath = normalizePath(filePath);
 
-  return documentPaths.some((path) => normalizedFilePath.includes(path));
+  return documentPaths.includes(normalizedFilePath);
 };
 
 export const isGraphQLSchema: FileMatcher = async (filePath, context) => {
@@ -30,5 +30,5 @@ export const isGraphQLSchema: FileMatcher = async (filePath, context) => {
 
   const normalizedFilePath = normalizePath(filePath);
 
-  return schemaPaths.some((path) => normalizedFilePath.includes(path));
+  return schemaPaths.includes(normalizedFilePath);
 };
