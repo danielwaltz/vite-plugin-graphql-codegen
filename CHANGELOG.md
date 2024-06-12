@@ -1,3 +1,15 @@
+### [3.3.8](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.7...v3.3.8) (2024-06-12)
+
+
+### Bug Fixes
+
+* watch documents and schemas from nested config ([5f8f08d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/5f8f08d4b64fe53db9ce485695bb108f27db8cc6))
+
+
+### Miscellaneous Chores
+
+* normalize schema file path ([39f1361](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/39f136140018175357eec47ef7846b12103d95af))
+
 ### [3.3.7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.6...v3.3.7) (2024-06-01)
 
 
