@@ -1,6 +1,6 @@
 import { normalizePath } from 'vite';
-import { resolve } from 'node:path';
 import type { CodegenContext } from '@graphql-codegen/cli';
+import type { Types } from '@graphql-codegen/plugin-helpers/typings/types';
 
 export async function getDocumentPaths(
   context: CodegenContext,
@@ -44,15 +44,19 @@ export async function getSchemaPaths(
     sourceSchemas.unshift(config.schema);
   }
 
-  const schemas = sourceSchemas
+  const normalized = sourceSchemas
     .filter((item): item is NonNullable<typeof item> => !!item)
     .flat();
 
-  if (!schemas.length) return [];
+  if (!normalized.length) return [];
 
-  return schemas
-    .filter((schema): schema is string => typeof schema === 'string')
+  const schemas = await context.loadSchema(
+    // loadSchema supports array of string, but typings are wrong
+    normalized as unknown as Types.Schema,
+  );
+
+  return (schemas.extensions.sources as { name: string }[])
+    .map(({ name = '' }) => name)
     .filter(Boolean)
-    .map((schema) => resolve(schema))
     .map(normalizePath);
 }
