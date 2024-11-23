@@ -1,3 +1,21 @@
+## [3.4.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.8...v3.4.0) (2024-11-23)
+
+
+### Features
+
+* support glob paths in schema ([#33](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/33)) ([2efef2e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/2efef2e059537af77d753151b033faf6c4a80248)), closes [#34](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/34)
+
+
+### Continuous Integration
+
+* update github action versions ([0c656ab](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/0c656ab6628f956f1a90e3fa706cf290e5f7fa4f))
+
+
+### Miscellaneous Chores
+
+* update node to `v22.11.0` lts ([d941f32](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/d941f32866db4d0beec22d6ebe1eccecc15f300a))
+* use `.node-version` file ([863a61a](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/863a61a4eacedd9229102810235a521284cbb642))
+
 ### [3.3.8](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.7...v3.3.8) (2024-06-12)
 
 
