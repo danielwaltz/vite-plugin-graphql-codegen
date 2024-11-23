@@ -77,7 +77,7 @@ codegen({
    */
   matchOnDocuments?: boolean;
   /**
-   * Run codegen when a schema matches. Only supports file path based schemas.
+   * Run codegen when a schema matches.
    *
    * @defaultValue `false`
    */

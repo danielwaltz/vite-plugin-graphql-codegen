@@ -1,0 +1,9 @@
+schema:
+  - ./test/match-on-glob-schema/dir-1/**/*.graphql
+  - ./test/match-on-glob-schema/dir-2/**/*.graphql
+documents: ./test/match-on-glob-schema/graphql/**/*.graphql
+generates:
+  ./test/match-on-glob-schema/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
