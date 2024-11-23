@@ -217,6 +217,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
               else log(`File did not match a graphql ${name}`);
 
               return isMatch;
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error) {
               // GraphQL Codegen handles logging useful errors
               log(`Check for ${name} file failed in file watcher`);
@@ -232,6 +233,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
         try {
           await generateWithOverride(configOverrideWatcher);
           log('Generation successful in file watcher');
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
           log('Generation failed in file watcher');

@@ -24,6 +24,7 @@ describe('main', () => {
     try {
       await fs.access(OUTPUT_FILE);
       return true;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       // ignore
     }
