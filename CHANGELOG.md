@@ -1,3 +1,10 @@
+### [3.4.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.1...v3.4.2) (2024-12-01)
+
+
+### Bug Fixes
+
+* **deps:** update dep versions to be more loose ([c807514](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c8075147f366825a85d677d477ba3d2ea3a1cdb7))
+
 ### [3.4.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.0...v3.4.1) (2024-12-01)
 
 
