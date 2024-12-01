@@ -5,14 +5,10 @@ import {
   generate,
   loadContext,
 } from '@graphql-codegen/cli';
-import {
-  type FileMatcher,
-  isCodegenConfig,
-  isGraphQLDocument,
-  isGraphQLSchema,
-} from './utils/fileMatchers';
+import { isCodegenConfig } from './utils/fileMatchers';
 import { isBuildMode, isServeMode, type ViteMode } from './utils/viteModes';
 import { debugLog } from './utils/debugLog';
+import { createMatchCache } from './utils/matchCache';
 
 export interface Options {
   /**
@@ -181,67 +177,69 @@ export function GraphQLCodegen(options?: Options): Plugin {
     configureServer(server) {
       if (!enableWatcher) return;
 
-      const listener = async (filePath = '') => {
-        log('File changed:', filePath);
+      const matchCache = createMatchCache(codegenContext, {
+        matchOnDocuments,
+        matchOnSchemas,
+      });
 
-        const isConfig = await isCodegenConfig(filePath, codegenContext);
+      async function checkFile(filePath: string) {
+        log(`Checking file: ${filePath}`);
 
-        if (isConfig) {
-          log('Codegen config file changed, restarting vite');
+        if (matchCache.has(filePath)) {
+          log('File is in match cache');
+
+          try {
+            await generateWithOverride(configOverrideWatcher);
+            log('Generation successful in file watcher');
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          } catch (error) {
+            // GraphQL Codegen handles logging useful errors
+            log('Generation failed in file watcher');
+          }
+
+          return;
+        }
+
+        if (isCodegenConfig(filePath, codegenContext)) {
+          log('Codegen config file matched, restarting vite');
           server.restart();
           return;
         }
 
-        const matchers: [
-          enabled: boolean,
-          name: string,
-          matcher: FileMatcher,
-        ][] = [
-          [matchOnDocuments, 'document', isGraphQLDocument],
-          [matchOnSchemas, 'schema', isGraphQLSchema],
-        ];
+        log('File did not match');
+      }
 
-        const matcherResults = await Promise.all(
-          matchers.map(async ([enabled, name, matcher]) => {
-            if (!enabled) {
-              log(`Check for ${name} file skipped in file watcher by config`);
-              return false;
-            }
-
-            try {
-              const isMatch = await matcher(filePath, codegenContext);
-
-              log(`Check for ${name} file successful in file watcher`);
-
-              if (isMatch) log(`File matched a graphql ${name}`);
-              else log(`File did not match a graphql ${name}`);
-
-              return isMatch;
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            } catch (error) {
-              // GraphQL Codegen handles logging useful errors
-              log(`Check for ${name} file failed in file watcher`);
-              return false;
-            }
-          }),
-        );
-
-        const isMatch = matcherResults.some((result) => result);
-
-        if (!isMatch) return;
-
+      async function initializeWatcher() {
         try {
-          await generateWithOverride(configOverrideWatcher);
-          log('Generation successful in file watcher');
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          log('Match cache initialing');
+          await matchCache.init();
+          log('Match cache initialized');
         } catch (error) {
-          // GraphQL Codegen handles logging useful errors
-          log('Generation failed in file watcher');
+          log('Match cache initialization failed', error);
         }
-      };
 
-      server.watcher.on('add', listener);
-      server.watcher.on('change', listener);
+        server.watcher.on('add', async (filePath) => {
+          log(`File added: ${filePath}`);
+
+          try {
+            log('Match cache refreshing');
+            await matchCache.refresh();
+            log('Match cache refreshed');
+          } catch (error) {
+            log('Match cache refresh failed', error);
+          }
+
+          await checkFile(filePath);
+        });
+
+        server.watcher.on('change', async (filePath) => {
+          log(`File changed: ${filePath}`);
+
+          await checkFile(filePath);
+        });
+      }
+
+      initializeWatcher();
     },
   } as const satisfies Plugin;
 }

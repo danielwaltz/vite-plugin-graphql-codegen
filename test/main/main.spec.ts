@@ -22,6 +22,7 @@ describe('main', () => {
 
   const isFileGenerated = async (): Promise<boolean> => {
     try {
+      await new Promise((resolve) => setTimeout(resolve, 200));
       await fs.access(OUTPUT_FILE);
       return true;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
