@@ -1,3 +1,23 @@
+### [3.4.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.0...v3.4.1) (2024-12-01)
+
+
+### Performance Improvements
+
+* load and cache matches on server start ([69c1d97](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/69c1d97cc7a6df321276b6445145482a28efd8dd)), closes [#32](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/32) [#27](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/27)
+* skip match cache refresh if file is generated ([c0737a7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c0737a7aab210b227f5395c2b0b04873262cf3bf))
+
+
+### Tests
+
+* scope vite instances to spec directories ([90d771f](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/90d771f9ca032850eb21060a18f403dd6d3b63f4))
+
+
+### Miscellaneous Chores
+
+* **deps:** update deps ([43ed87b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/43ed87b78c08edda73962b423fa73794c999be54))
+* **deps:** use vite 6 ([64c89c9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/64c89c9244c55c1c302e45c1370d902dc79bfb4a))
+* update dev deps ([2de28d2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/2de28d2742ce1cc08aeff0b560b0d2d57c82083d))
+
 ## [3.4.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.3.8...v3.4.0) (2024-11-23)
 
 
