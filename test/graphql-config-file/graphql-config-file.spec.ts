@@ -8,6 +8,7 @@ const OUTPUT_PATH = `${TEST_PATH}/generated` as const;
 const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts` as const;
 
 const viteConfig = {
+  root: import.meta.dirname,
   plugins: [
     codegen({
       configFilePathOverride: `${TEST_PATH}/graphql.config.yml`,

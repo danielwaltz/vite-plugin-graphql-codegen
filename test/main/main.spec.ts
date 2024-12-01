@@ -10,6 +10,7 @@ const OUTPUT_FILE_NAME = 'graphql.ts' as const;
 const OUTPUT_FILE = `${OUTPUT_PATH}/${OUTPUT_FILE_NAME}` as const;
 
 const viteConfig = {
+  root: import.meta.dirname,
   plugins: [
     codegen({
       configFilePathOverride: `${TEST_PATH}/codegen.yml`,

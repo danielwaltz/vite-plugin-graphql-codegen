@@ -31,6 +31,7 @@ const pluginConfig = {
 } satisfies Options;
 
 const viteConfig = {
+  root: import.meta.dirname,
   plugins: [codegen(pluginConfig)],
 } satisfies UserConfig;
 
