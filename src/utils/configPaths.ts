@@ -16,7 +16,7 @@ export async function getDocumentPaths(
   }
 
   const normalized = sourceDocuments
-    .filter((item): item is NonNullable<typeof item> => !!item)
+    .filter((item) => item !== undefined)
     .flat();
 
   if (!normalized.length) return [];
@@ -59,4 +59,10 @@ export async function getSchemaPaths(
     .map(({ name = '' }) => name)
     .filter(Boolean)
     .map(normalizePath);
+}
+
+export function getGeneratesPaths(context: CodegenContext): string[] {
+  const config = context.getConfig();
+
+  return Object.keys(config.generates).map(normalizePath);
 }

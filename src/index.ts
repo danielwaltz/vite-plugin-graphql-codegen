@@ -5,7 +5,7 @@ import {
   generate,
   loadContext,
 } from '@graphql-codegen/cli';
-import { isCodegenConfig } from './utils/fileMatchers';
+import { isCodegenConfig, isGeneratedFile } from './utils/fileMatchers';
 import { isBuildMode, isServeMode, type ViteMode } from './utils/viteModes';
 import { debugLog } from './utils/debugLog';
 import { createMatchCache } from './utils/matchCache';
@@ -220,6 +220,11 @@ export function GraphQLCodegen(options?: Options): Plugin {
 
         server.watcher.on('add', async (filePath) => {
           log(`File added: ${filePath}`);
+
+          if (isGeneratedFile(filePath, codegenContext)) {
+            log('File is a generated output file, skipping');
+            return;
+          }
 
           try {
             log('Match cache refreshing');
