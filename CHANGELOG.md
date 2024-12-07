@@ -1,3 +1,16 @@
+## [3.4.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.2...v3.4.3) (2024-12-07)
+
+### Bug Fixes
+
+* remove vite and codegen cli from deps to rely on peer deps ([40e8c56](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/40e8c560486638330967f809b64616318ae877d4))
+
+### Miscellaneous Chores
+
+* add full git url to package file ([33c53b3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/33c53b30cf5fe0fd7a0e82eab7047be2ab8cb4e8))
+* add vite and codegen cli as dev deps ([8104f38](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/8104f38ee8e392c33761ef8692df7e64b6a849c5))
+* migrate to flat eslint config ([7676e68](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/7676e682ed4e1fbe252c5324c5f11340892b4bf0))
+* update deps and format ([66dd33f](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/66dd33f1a67638a1fb10be4d49e13948e2575c8a))
+
 ### [3.4.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.1...v3.4.2) (2024-12-01)
 
 
