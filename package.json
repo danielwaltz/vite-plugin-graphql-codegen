@@ -53,20 +53,23 @@
     "@graphql-codegen/typescript": "^4.1.2",
     "@graphql-codegen/typescript-operations": "^4.4.0",
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.2.6",
-    "@semantic-release/npm": "^11.0.3",
-    "@semantic-release/release-notes-generator": "^12.1.0",
+    "@semantic-release/github": "^11.0.1",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
     "@types/node": "~22.10.1",
     "eslint": "^9.16.0",
     "graphql": "^16.9.0",
     "graphql-tag": "^2.12.6",
-    "prettier": "^3.4.1",
-    "semantic-release": "^22.0.12",
+    "prettier": "^3.4.2",
+    "semantic-release": "^24.2.0",
     "standard-version": "^9.5.0",
     "typescript": "~5.7.2",
     "unbuild": "^2.0.0",
-    "vitest": "^2.1.6"
+    "vitest": "^2.1.8"
+  },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">= 8.0.0"
   }
 }

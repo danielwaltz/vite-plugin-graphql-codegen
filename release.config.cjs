@@ -1,88 +1,88 @@
 /** @type {import('semantic-release').GlobalConfig} */
 module.exports = {
-  branches: ['main'],
+  branches: ["main"],
   plugins: [
     [
-      '@semantic-release/commit-analyzer',
+      "@semantic-release/commit-analyzer",
       {
-        preset: 'conventionalcommits',
+        preset: "conventionalcommits",
         releaseRules: [
           {
-            type: 'chore',
-            scope: 'deps',
-            release: 'patch',
+            type: "chore",
+            scope: "deps",
+            release: "patch",
           },
         ],
       },
     ],
     [
-      '@semantic-release/release-notes-generator',
+      "@semantic-release/release-notes-generator",
       {
-        preset: 'conventionalcommits',
+        preset: "conventionalcommits",
         presetConfig: {
           types: [
             {
-              type: 'feat',
-              section: 'Features',
+              type: "feat",
+              section: "Features",
               hidden: false,
             },
             {
-              type: 'fix',
-              section: 'Bug Fixes',
+              type: "fix",
+              section: "Bug Fixes",
               hidden: false,
             },
             {
-              type: 'perf',
-              section: 'Performance Improvements',
+              type: "perf",
+              section: "Performance Improvements",
               hidden: false,
             },
             {
-              type: 'revert',
-              section: 'Reverts',
+              type: "revert",
+              section: "Reverts",
               hidden: false,
             },
             {
-              type: 'docs',
-              section: 'Documentation',
+              type: "docs",
+              section: "Documentation",
               hidden: false,
             },
             {
-              type: 'style',
-              section: 'Styles',
+              type: "style",
+              section: "Styles",
               hidden: false,
             },
             {
-              type: 'chore',
-              section: 'Miscellaneous Chores',
+              type: "chore",
+              section: "Miscellaneous Chores",
               hidden: false,
             },
             {
-              type: 'refactor',
-              section: 'Code Refactoring',
+              type: "refactor",
+              section: "Code Refactoring",
               hidden: false,
             },
             {
-              type: 'test',
-              section: 'Tests',
+              type: "test",
+              section: "Tests",
               hidden: false,
             },
             {
-              type: 'build',
-              section: 'Build System',
+              type: "build",
+              section: "Build System",
               hidden: false,
             },
             {
-              type: 'ci',
-              section: 'Continuous Integration',
+              type: "ci",
+              section: "Continuous Integration",
               hidden: false,
             },
           ],
         },
       },
     ],
-    '@semantic-release/changelog',
-    '@semantic-release/npm',
-    '@semantic-release/git',
-    '@semantic-release/github',
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    "@semantic-release/github",
   ],
 };

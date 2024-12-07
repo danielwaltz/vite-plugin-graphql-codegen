@@ -1,6 +1,6 @@
-import { normalizePath } from 'vite';
-import type { CodegenContext } from '@graphql-codegen/cli';
-import type { Types } from '@graphql-codegen/plugin-helpers/typings/types';
+import { normalizePath } from "vite";
+import type { CodegenContext } from "@graphql-codegen/cli";
+import type { Types } from "@graphql-codegen/plugin-helpers/typings/types";
 
 export async function getDocumentPaths(
   context: CodegenContext,
@@ -26,7 +26,7 @@ export async function getDocumentPaths(
   if (!documents.length) return [];
 
   return documents
-    .map(({ location = '' }) => location)
+    .map(({ location = "" }) => location)
     .filter(Boolean)
     .map(normalizePath);
 }
@@ -56,7 +56,7 @@ export async function getSchemaPaths(
   );
 
   return (schemas.extensions.sources as { name: string }[])
-    .map(({ name = '' }) => name)
+    .map(({ name = "" }) => name)
     .filter(Boolean)
     .map(normalizePath);
 }
