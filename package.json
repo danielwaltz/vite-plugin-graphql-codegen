@@ -2,12 +2,7 @@
   "name": "vite-plugin-graphql-codegen",
   "version": "3.4.2",
   "description": "Zero-config vite plugin that uses the vite file watcher to run graphql codegen programmatically without needing to start a separate watcher",
-  "license": "MIT",
-  "author": "Daniel Waltz",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
-  },
+  "type": "module",
   "keywords": [
     "graphql",
     "codegen",
@@ -17,23 +12,28 @@
     "vite-plugin",
     "vite-plugin-graphql-codegen"
   ],
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "author": "Daniel Waltz",
   "files": [
     "dist"
   ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
-    "dev": "unbuild --stub",
     "build": "unbuild",
-    "lint": "eslint . --no-fix --ignore-path .gitignore --max-warnings 0",
+    "stub": "unbuild --stub",
+    "lint": "eslint . --cache --cache-location ./node_modules/.cache/.eslintcache --max-warnings 0",
     "type-check": "tsc --noEmit",
     "test": "vitest",
     "release": "standard-version",
@@ -49,6 +49,7 @@
     "@graphql-codegen/plugin-helpers": "^5.1.0"
   },
   "devDependencies": {
+    "@danielwaltz/eslint-config": "^0.0.8",
     "@graphql-codegen/typescript": "^4.1.2",
     "@graphql-codegen/typescript-operations": "^4.4.0",
     "@semantic-release/changelog": "^6.0.3",
@@ -58,11 +59,7 @@
     "@semantic-release/npm": "^11.0.3",
     "@semantic-release/release-notes-generator": "^12.1.0",
     "@types/node": "~22.10.1",
-    "@typescript-eslint/eslint-plugin": "^8.16.0",
-    "@typescript-eslint/parser": "^8.16.0",
-    "eslint": "~8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint": "^9.16.0",
     "graphql": "^16.9.0",
     "graphql-tag": "^2.12.6",
     "prettier": "^3.4.1",

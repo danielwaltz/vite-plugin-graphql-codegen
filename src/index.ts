@@ -1,14 +1,15 @@
-import type { Plugin } from 'vite';
+import process from "node:process";
 import {
-  type CodegenConfig,
   CodegenContext,
   generate,
   loadContext,
-} from '@graphql-codegen/cli';
-import { isCodegenConfig, isGeneratedFile } from './utils/fileMatchers';
-import { isBuildMode, isServeMode, type ViteMode } from './utils/viteModes';
-import { debugLog } from './utils/debugLog';
-import { createMatchCache } from './utils/matchCache';
+  type CodegenConfig,
+} from "@graphql-codegen/cli";
+import { debugLog } from "./utils/debugLog";
+import { isCodegenConfig, isGeneratedFile } from "./utils/fileMatchers";
+import { createMatchCache } from "./utils/matchCache";
+import { isBuildMode, isServeMode, type ViteMode } from "./utils/viteModes";
+import type { Plugin } from "vite";
 
 export interface Options {
   /**
@@ -116,7 +117,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
   ) => {
     const currentConfig = codegenContext.getConfig();
 
-    return generate({
+    return await generate({
       ...currentConfig,
       ...configOverride,
       ...overrideConfig,
@@ -125,23 +126,23 @@ export function GraphQLCodegen(options?: Options): Plugin {
     });
   };
 
-  if (options) log('Plugin initialized with options:', options);
+  if (options) log("Plugin initialized with options:", options);
 
   return {
-    name: 'graphql-codegen',
+    name: "graphql-codegen",
     async config(_config, env) {
       try {
         if (config) {
-          log('Manual config passed, creating codegen context');
+          log("Manual config passed, creating codegen context");
           codegenContext = new CodegenContext({ config });
         } else {
           const cwd = process.cwd();
-          log('Loading codegen context:', configFilePathOverride ?? cwd);
+          log("Loading codegen context:", configFilePathOverride ?? cwd);
           codegenContext = await loadContext(configFilePathOverride);
         }
-        log('Loading codegen context successful');
+        log("Loading codegen context successful");
       } catch (error) {
-        log('Loading codegen context failed');
+        log("Loading codegen context failed");
         throw error;
       }
 
@@ -153,10 +154,10 @@ export function GraphQLCodegen(options?: Options): Plugin {
 
         try {
           await generateWithOverride(configOverrideOnStart);
-          log('Generation successful on start');
+          log("Generation successful on start");
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
-          log('Generation failed on start');
+          log("Generation failed on start");
           if (throwOnStart) throw error;
         }
       }
@@ -166,10 +167,10 @@ export function GraphQLCodegen(options?: Options): Plugin {
 
         try {
           await generateWithOverride(configOverrideOnBuild);
-          log('Generation successful on build');
+          log("Generation successful on build");
         } catch (error) {
           // GraphQL Codegen handles logging useful errors
-          log('Generation failed on build');
+          log("Generation failed on build");
           if (throwOnBuild) throw error;
         }
       }
@@ -186,58 +187,57 @@ export function GraphQLCodegen(options?: Options): Plugin {
         log(`Checking file: ${filePath}`);
 
         if (matchCache.has(filePath)) {
-          log('File is in match cache');
+          log("File is in match cache");
 
           try {
             await generateWithOverride(configOverrideWatcher);
-            log('Generation successful in file watcher');
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          } catch (error) {
+            log("Generation successful in file watcher");
+          } catch {
             // GraphQL Codegen handles logging useful errors
-            log('Generation failed in file watcher');
+            log("Generation failed in file watcher");
           }
 
           return;
         }
 
         if (isCodegenConfig(filePath, codegenContext)) {
-          log('Codegen config file matched, restarting vite');
+          log("Codegen config file matched, restarting vite");
           server.restart();
           return;
         }
 
-        log('File did not match');
+        log("File did not match");
       }
 
       async function initializeWatcher() {
         try {
-          log('Match cache initialing');
+          log("Match cache initialing");
           await matchCache.init();
-          log('Match cache initialized');
+          log("Match cache initialized");
         } catch (error) {
-          log('Match cache initialization failed', error);
+          log("Match cache initialization failed", error);
         }
 
-        server.watcher.on('add', async (filePath) => {
+        server.watcher.on("add", async (filePath) => {
           log(`File added: ${filePath}`);
 
           if (isGeneratedFile(filePath, codegenContext)) {
-            log('File is a generated output file, skipping');
+            log("File is a generated output file, skipping");
             return;
           }
 
           try {
-            log('Match cache refreshing');
+            log("Match cache refreshing");
             await matchCache.refresh();
-            log('Match cache refreshed');
+            log("Match cache refreshed");
           } catch (error) {
-            log('Match cache refresh failed', error);
+            log("Match cache refresh failed", error);
           }
 
           await checkFile(filePath);
         });
 
-        server.watcher.on('change', async (filePath) => {
+        server.watcher.on("change", async (filePath) => {
           log(`File changed: ${filePath}`);
 
           await checkFile(filePath);

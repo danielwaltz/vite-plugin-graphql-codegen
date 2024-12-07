@@ -1,6 +1,6 @@
-import { normalizePath } from 'vite';
-import type { CodegenContext } from '@graphql-codegen/cli';
-import { getGeneratesPaths } from './configPaths';
+import { normalizePath } from "vite";
+import { getGeneratesPaths } from "./configPaths";
+import type { CodegenContext } from "@graphql-codegen/cli";
 
 export function isCodegenConfig(filePath: string, context: CodegenContext) {
   if (!context.filepath) return false;

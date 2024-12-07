@@ -1,9 +1,9 @@
-import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
-import { createServer, UserConfig, ViteDevServer } from 'vite';
-import { promises as fs } from 'node:fs';
-import codegen from '../../src/index';
+import { promises as fs } from "node:fs";
+import { createServer, type UserConfig, type ViteDevServer } from "vite";
+import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
+import codegen from "../../src/index";
 
-const TEST_PATH = './test/graphql-config-file' as const;
+const TEST_PATH = "./test/graphql-config-file" as const;
 const OUTPUT_PATH = `${TEST_PATH}/generated` as const;
 const OUTPUT_FILE = `${OUTPUT_PATH}/graphql.ts` as const;
 
@@ -16,7 +16,7 @@ const viteConfig = {
   ],
 } satisfies UserConfig;
 
-describe('graphql-config-file', () => {
+describe("graphql-config-file", () => {
   let viteServer: ViteDevServer | null = null;
 
   beforeAll(async () => {
@@ -32,9 +32,9 @@ describe('graphql-config-file', () => {
     await fs.rm(OUTPUT_PATH, { recursive: true });
   });
 
-  it('generates', async () => {
+  it("generates", async () => {
     await new Promise((resolve) => setTimeout(resolve, 200));
-    const file = await fs.readFile(OUTPUT_FILE, 'utf-8');
+    const file = await fs.readFile(OUTPUT_FILE, "utf-8");
 
     expect(file).toMatchSnapshot();
   });

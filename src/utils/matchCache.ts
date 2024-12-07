@@ -1,11 +1,11 @@
-import type { CodegenContext } from '@graphql-codegen/cli';
-import { getDocumentPaths, getSchemaPaths } from './configPaths';
-import { normalizePath } from 'vite';
-import type { Options } from '..';
+import { normalizePath } from "vite";
+import type { Options } from "..";
+import { getDocumentPaths, getSchemaPaths } from "./configPaths";
+import type { CodegenContext } from "@graphql-codegen/cli";
 
 export function createMatchCache(
   context: CodegenContext,
-  options: Pick<Required<Options>, 'matchOnDocuments' | 'matchOnSchemas'>,
+  options: Pick<Required<Options>, "matchOnDocuments" | "matchOnSchemas">,
 ) {
   const cache = new Set<string>();
 

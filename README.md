@@ -45,72 +45,72 @@ codegen({
    *
    * @defaultValue `true`
    */
-  runOnStart?: boolean;
+  runOnStart: boolean,
   /**
    * Run codegen on build. Will prevent build if codegen fails.
    *
    * @defaultValue `true`
    */
-  runOnBuild?: boolean;
+  runOnBuild: boolean,
   /**
    * Enable codegen integration with vite file watcher.
    *
    * @defaultValue `true`
    */
-  enableWatcher?: boolean;
+  enableWatcher: boolean,
   /**
    * Throw an error if codegen fails on server start.
    *
    * @defaultValue `false`
    */
-  throwOnStart?: boolean;
+  throwOnStart: boolean,
   /**
    * Throw an error if codegen fails on build.
    *
    * @defaultValue `true`
    */
-  throwOnBuild?: boolean;
+  throwOnBuild: boolean,
   /**
    * Run codegen when a document matches.
    *
    * @defaultValue `true`
    */
-  matchOnDocuments?: boolean;
+  matchOnDocuments: boolean,
   /**
    * Run codegen when a schema matches.
    *
    * @defaultValue `false`
    */
-  matchOnSchemas?: boolean;
+  matchOnSchemas: boolean,
   /**
    * Manually define the codegen config.
    */
-  config?: CodegenConfig;
+  config: CodegenConfig,
   /**
    * Override parts of the codegen config just for this plugin.
    */
-  configOverride?: Partial<CodegenConfig>;
+  configOverride: Partial<CodegenConfig>,
   /**
    * Override parts of the codegen config just for this plugin on server start.
    */
-  configOverrideOnStart?: Partial<CodegenConfig>;
+  configOverrideOnStart: Partial<CodegenConfig>,
   /**
    * Override parts of the codegen config just for this plugin on build.
    */
-  configOverrideOnBuild?: Partial<CodegenConfig>;
+  configOverrideOnBuild: Partial<CodegenConfig>,
   /**
    * Override parts of the codegen config just for this plugin in the watcher.
    */
-  configOverrideWatcher?: Partial<CodegenConfig>;
+  configOverrideWatcher: Partial<CodegenConfig>,
   /**
    * Override the codegen config file path.
    */
-  configFilePathOverride?: string;
+  configFilePathOverride: string,
   /**
    * Log various steps to aid in tracking down bugs.
    *
    * @defaultValue `false`
    */
-  debug?: boolean;
+  debug: boolean,
 });
 ```

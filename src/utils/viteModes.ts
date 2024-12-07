@@ -1,11 +1,11 @@
-import type { ConfigEnv } from 'vite';
+import type { ConfigEnv } from "vite";
 
-export type ViteMode = ConfigEnv['command'];
+export type ViteMode = ConfigEnv["command"];
 
-const modes = {
-  serve: 'serve',
-  build: 'build',
-} as { [K in ViteMode]: K };
+const modes: { [K in ViteMode]: K } = {
+  serve: "serve",
+  build: "build",
+};
 
 const { serve, build } = modes;
 
