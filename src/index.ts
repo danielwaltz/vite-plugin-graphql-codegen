@@ -15,43 +15,43 @@ export interface Options {
   /**
    * Run codegen on server start.
    *
-   * @defaultValue `true`
+   * @default true
    */
   runOnStart?: boolean;
   /**
    * Run codegen on build. Will prevent build if codegen fails.
    *
-   * @defaultValue `true`
+   * @default true
    */
   runOnBuild?: boolean;
   /**
    * Enable codegen integration with vite file watcher.
    *
-   * @defaultValue `true`
+   * @default true
    */
   enableWatcher?: boolean;
   /**
    * Throw an error if codegen fails on server start.
    *
-   * @defaultValue `false`
+   * @default false
    */
   throwOnStart?: boolean;
   /**
    * Throw an error if codegen fails on build.
    *
-   * @defaultValue `true`
+   * @default true
    */
   throwOnBuild?: boolean;
   /**
    * Run codegen when a document matches.
    *
-   * @defaultValue `true`
+   * @default true
    */
   matchOnDocuments?: boolean;
   /**
    * Run codegen when a schema matches.
    *
-   * @defaultValue `false`
+   * @default false
    */
   matchOnSchemas?: boolean;
   /**
@@ -81,7 +81,7 @@ export interface Options {
   /**
    * Log various steps to aid in tracking down bugs.
    *
-   * @defaultValue `false`
+   * @default false
    */
   debug?: boolean;
 }
