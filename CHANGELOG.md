@@ -1,3 +1,13 @@
+## [3.4.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.3...v3.4.4) (2024-12-14)
+
+### Bug Fixes
+
+* update jsdoc for default value ([5b85be2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/5b85be228e5c683cca63142743390bab8108a989))
+
+### Miscellaneous Chores
+
+* update dev deps ([6a175a9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/6a175a9051ee1051153ce7405d16fe92bc3ea146))
+
 ## [3.4.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.2...v3.4.3) (2024-12-07)
 
 ### Bug Fixes
