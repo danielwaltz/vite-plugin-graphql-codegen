@@ -1,4 +1,4 @@
-# Vite Plugin GraphQL Codegen
+# Vite Plugin GraphQL Codegen [![npm](https://img.shields.io/npm/v/vite-plugin-graphql-codegen.svg)](https://npmjs.com/package/vite-plugin-graphql-codegen)
 
 Zero-config vite plugin that uses the vite file watcher to run [graphql codegen](https://www.graphql-code-generator.com/) programmatically without needing to start a separate watcher.
 
@@ -8,7 +8,7 @@ Installation instructions found [here](https://www.graphql-code-generator.com/do
 
 ## Install Plugin
 
-```bash
+```shell
 # npm
 npm i -D vite-plugin-graphql-codegen
 
