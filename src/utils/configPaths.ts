@@ -1,6 +1,6 @@
 import { normalizePath } from "vite";
 import type { CodegenContext } from "@graphql-codegen/cli";
-import type { Types } from "@graphql-codegen/plugin-helpers/typings/types";
+import type { Types } from "@graphql-codegen/plugin-helpers";
 
 export async function getDocumentPaths(
   context: CodegenContext,
