@@ -1,3 +1,19 @@
+## [3.4.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.4...v3.4.5) (2025-01-25)
+
+### Bug Fixes
+
+* update path to codegen types ([cf6c0a9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/cf6c0a9bd88efa085bd4751614ba738c103682d3))
+
+### Documentation
+
+* add badge to readme ([0fa8dc1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/0fa8dc1244e997e4fc9b79b7748dd0c8c570fe4e))
+
+### Miscellaneous Chores
+
+* update dev deps ([61977c9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/61977c90f01d10dc2b3a180c082762a7121a008a))
+* update eslint config ([c60e73b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c60e73b9a37464d58821fd72a8ffb3a8f326d620))
+* use typescript for eslint config ([b88d5c7](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/b88d5c761be260f04d736011bc4f850e8c6e5e3d))
+
 ## [3.4.4](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.3...v3.4.4) (2024-12-14)
 
 ### Bug Fixes
