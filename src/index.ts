@@ -55,6 +55,10 @@ export interface Options {
    */
   matchOnSchemas?: boolean;
   /**
+   * Name of a project in a multi-project config file.
+   */
+  project?: string;
+  /**
    * Manually define the codegen config.
    */
   config?: CodegenConfig;
@@ -98,6 +102,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
     throwOnBuild = true,
     matchOnDocuments = true,
     matchOnSchemas = false,
+    project = null,
     config = null,
     configOverride = {},
     configOverrideOnStart = {},
@@ -140,6 +145,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
           log("Loading codegen context:", configFilePathOverride ?? cwd);
           codegenContext = await loadContext(configFilePathOverride);
         }
+        if (project != null) codegenContext.useProject(project);
         log("Loading codegen context successful");
       } catch (error) {
         log("Loading codegen context failed");

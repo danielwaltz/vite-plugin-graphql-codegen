@@ -1,0 +1,11 @@
+projects:
+  foo:
+    schema: ./test/graphql-multi-project/schema.graphql
+    documents: ./test/graphql-multi-project/graphql/**/*.graphql
+    extensions:
+      codegen:
+        generates:
+          ./test/graphql-multi-project/generated/graphql.ts:
+            plugins:
+              - typescript
+              - typescript-operations
