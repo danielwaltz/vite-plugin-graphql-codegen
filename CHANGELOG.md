@@ -1,3 +1,9 @@
+## [3.5.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.5...v3.5.0) (2025-02-07)
+
+### Features
+
+* multi-project support ([#36](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/36)) ([3f0899d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/3f0899d0ee546376030685c5ad0e7d43d6d0a4f5))
+
 ## [3.4.5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.4...v3.4.5) (2025-01-25)
 
 ### Bug Fixes
