@@ -59,6 +59,13 @@ codegen({
    */
   enableWatcher: boolean,
   /**
+   * Automatically add schemas and documents referenced in the codegen config
+   * to the file watcher.
+   *
+   * @default true
+   */
+  watchCodegenConfigFiles: boolean,
+  /**
    * Throw an error if codegen fails on server start.
    *
    * @default false

@@ -1,0 +1,7 @@
+schema: ./test/watch-outside-cwd/schema.graphql
+documents: ./test/watch-outside-cwd/vite-root/graphql/**/*.graphql
+generates:
+  ./test/watch-outside-cwd/vite-root/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations

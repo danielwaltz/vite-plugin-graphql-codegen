@@ -31,6 +31,13 @@ export interface Options {
    */
   enableWatcher?: boolean;
   /**
+   * Automatically add schemas and documents referenced in the codegen config
+   * to the Vite file watcher.
+   *
+   * @default true
+   */
+  watchCodegenConfigFiles?: boolean;
+  /**
    * Throw an error if codegen fails on server start.
    *
    * @default false
@@ -98,6 +105,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
     runOnStart = true,
     runOnBuild = true,
     enableWatcher = true,
+    watchCodegenConfigFiles = true,
     throwOnStart = false,
     throwOnBuild = true,
     matchOnDocuments = true,
@@ -135,7 +143,7 @@ export function GraphQLCodegen(options?: Options): Plugin {
 
   return {
     name: "graphql-codegen",
-    async config(_config, env) {
+    async config(_userConfig, env) {
       try {
         if (config) {
           log("Manual config passed, creating codegen context");
@@ -219,6 +227,11 @@ export function GraphQLCodegen(options?: Options): Plugin {
         try {
           log("Match cache initialing");
           await matchCache.init();
+
+          if (watchCodegenConfigFiles) {
+            log("Adding codegen config files to watcher", matchCache.entries());
+            server.watcher.add(matchCache.entries());
+          }
           log("Match cache initialized");
         } catch (error) {
           log("Match cache initialization failed", error);

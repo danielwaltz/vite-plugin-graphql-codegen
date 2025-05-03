@@ -29,5 +29,6 @@ export function createMatchCache(
     init: refresh,
     refresh,
     has: (filePath: string) => cache.has(normalizePath(filePath)),
+    entries: () => Array.from(cache),
   };
 }
