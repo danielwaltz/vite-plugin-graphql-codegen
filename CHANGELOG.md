@@ -1,3 +1,16 @@
+## [3.6.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.5.0...v3.6.0) (2025-05-03)
+
+### Features
+
+* add option to automatically add schema and document files referenced in the codegen config to the vite file watcher ([e74caad](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/e74caadd9baa5f3917ce39c36e492203baf6a6de)), closes [#37](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/37)
+
+### Miscellaneous Chores
+
+* improve test script ([d97f229](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/d97f229af8c9f025dd8b298a863f3b88a7650ded))
+* make graphql codegen plugin helpers dep a dev dep ([21794b0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/21794b0af20ba086b5912d866b4a61455926c6a4))
+* update deps ([885191d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/885191dc5ec1462ac60c3c1d28cceb923922d890))
+* update deps ([de5935d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/de5935d5630695136ced784a55bf6706bb89783e))
+
 ## [3.5.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.4.5...v3.5.0) (2025-02-07)
 
 ### Features
