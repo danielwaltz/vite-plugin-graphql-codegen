@@ -1,3 +1,13 @@
+## [3.6.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.0...v3.6.1) (2025-05-07)
+
+### Bug Fixes
+
+* downgrade unbuild to fix cjs types output ([c1b0bca](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c1b0bcadb49ea16ea7c413c3f2ab349042f8f7f4)), closes [#38](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/38)
+
+### Miscellaneous Chores
+
+* update deps ([3b3262a](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/3b3262a84fa3dd0099f8a89163c456ed5970bd58))
+
 ## [3.6.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.5.0...v3.6.0) (2025-05-03)
 
 ### Features
