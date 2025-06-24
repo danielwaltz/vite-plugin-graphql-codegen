@@ -1,3 +1,14 @@
+## [3.6.2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.1...v3.6.2) (2025-06-24)
+
+### Bug Fixes
+
+* add vite `v7.0.0` to peer dep range ([c9db7f9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c9db7f9d0b49db6b67c87b9698747aa36714c67a))
+
+### Miscellaneous Chores
+
+* refresh editorconfig ([fd1fd48](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/fd1fd48f5e7396b93056c006615e84b923c44957))
+* update deps and refresh lockfile ([d200170](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/d2001709b35a192f57bad49e8a25617cda4634d8))
+
 ## [3.6.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.0...v3.6.1) (2025-05-07)
 
 ### Bug Fixes
