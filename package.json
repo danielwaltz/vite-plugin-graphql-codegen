@@ -49,15 +49,15 @@
     "prepack": "npm run build"
   },
   "peerDependencies": {
-    "@graphql-codegen/cli": ">=1.0.0 <6.0.0",
+    "@graphql-codegen/cli": ">=1.0.0 <7.0.0",
     "graphql": ">=14.0.0 <17.0.0",
     "vite": ">=2.7.0 <8.0.0"
   },
   "devDependencies": {
     "@danielwaltz/eslint-config": "^2.6.0",
-    "@graphql-codegen/plugin-helpers": "^5.1.1",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-operations": "^4.6.1",
+    "@graphql-codegen/plugin-helpers": "^6.0.0",
+    "@graphql-codegen/typescript": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^5.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
