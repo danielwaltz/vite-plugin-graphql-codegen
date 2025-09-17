@@ -1,3 +1,19 @@
+## [3.7.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.3...v3.7.0) (2025-09-17)
+
+### Features
+
+* support graphql codegen cli v6 ([54af525](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/54af5252cf655e87891e7088c7117f7a191ae061)), closes [#40](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/40)
+
+### Miscellaneous Chores
+
+* update dev deps ([5ec42e5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/5ec42e572e84e19ec9062edef521f021e982faa3))
+* update dev deps ([f37e052](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/f37e052a6ca7a6c6f7c485382685ad713ff9cc55))
+* update dev deps ([228f0c5](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/228f0c5a7dc5edaad99260e7448544f5971df8ac))
+
+### Continuous Integration
+
+* prepare for trusted publishing ([597470c](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/597470c323ce64a6f9069cf5effb59e12db984c4))
+
 ## [3.6.3](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.2...v3.6.3) (2025-07-09)
 
 ### Bug Fixes
