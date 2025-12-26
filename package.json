@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-graphql-codegen",
   "type": "module",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "Zero-config vite plugin that uses the vite file watcher to run graphql codegen programmatically without needing to start a separate watcher",
   "author": "Daniel Waltz",
   "license": "MIT",

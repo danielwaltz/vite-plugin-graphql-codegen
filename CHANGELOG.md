@@ -1,3 +1,14 @@
+## [3.8.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.7.0...v3.8.0) (2025-12-26)
+
+### Features
+
+* support vite 8 ([08c4b64](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/08c4b64fa4811b4c142cba032e7fc7a5acb63c47))
+
+### Miscellaneous Chores
+
+* lint fixes ([19926cc](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/19926cc06de0d38825c16eb51275b86e80a684e3))
+* update deps ([51573cb](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/51573cbe11ae73459484356e8a5a931c60ae6872))
+
 ## [3.7.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.6.3...v3.7.0) (2025-09-17)
 
 ### Features
