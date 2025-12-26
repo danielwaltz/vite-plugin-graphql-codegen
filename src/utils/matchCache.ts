@@ -1,6 +1,6 @@
 import { normalizePath } from "vite";
-import type { Options } from "..";
 import { getDocumentPaths, getSchemaPaths } from "./configPaths";
+import type { Options } from "..";
 import type { CodegenContext } from "@graphql-codegen/cli";
 
 export function createMatchCache(

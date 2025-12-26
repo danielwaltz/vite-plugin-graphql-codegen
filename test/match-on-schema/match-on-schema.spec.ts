@@ -68,7 +68,7 @@ describe("match-on-schema", () => {
 
     await isFileGenerated();
 
-    const file = await fs.readFile(OUTPUT_FILE, "utf-8");
+    const file = await fs.readFile(OUTPUT_FILE, "utf8");
 
     expect(file).toMatchSnapshot();
   });

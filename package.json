@@ -1,8 +1,14 @@
 {
   "name": "vite-plugin-graphql-codegen",
+  "type": "module",
   "version": "3.7.0",
   "description": "Zero-config vite plugin that uses the vite file watcher to run graphql codegen programmatically without needing to start a separate watcher",
-  "type": "module",
+  "author": "Daniel Waltz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
+  },
   "keywords": [
     "graphql",
     "codegen",
@@ -12,24 +18,18 @@
     "vite-plugin",
     "vite-plugin-graphql-codegen"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
-  },
-  "author": "Daniel Waltz",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true,
