@@ -149,7 +149,7 @@ describe("skip", () => {
     ])("it should skip codegen $describe", async ({ skip }, context) => {
       await startServer({ skip }, context as TestContextWithServer);
 
-      expect(codegenGenerateMock.mock.calls).toEqual([]);
+      expect(codegenGenerateMock).not.toHaveBeenCalled();
     });
   });
 
@@ -227,7 +227,7 @@ describe("skip", () => {
 
       await updateQueryFile("query Foo { foo bar }");
 
-      expect(codegenGenerateMock.mock.calls).toEqual([]);
+      expect(codegenGenerateMock).not.toHaveBeenCalled();
     });
   });
 });
