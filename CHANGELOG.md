@@ -1,3 +1,18 @@
+## [3.9.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.8.0...v3.9.0) (2026-03-26)
+
+### Features
+
+* Add runtime skip property to conditionally skip codegen ([#41](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/41)) ([a730612](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/a7306124567a89a7b673798cb0f89397e1894c96))
+
+### Miscellaneous Chores
+
+* fix lint issues ([45eb550](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/45eb5506672747040983247855bd5793b24c2519))
+* update node to `v24.13.0` ([abb6a5d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/abb6a5dcca84f515820bbf333996077fcc08f3fc))
+
+### Continuous Integration
+
+* bump action versions ([6f59e77](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/6f59e774ef276797929cdb3c7317256bc5171914))
+
 ## [3.8.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.7.0...v3.8.0) (2025-12-26)
 
 ### Features
