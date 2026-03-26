@@ -114,6 +114,16 @@ codegen({
    */
   configFilePathOverride: string,
   /**
+   * Skip codegen for a given cycle when true.
+   *
+   * The callback receives the current trigger and the changed file path
+   * for watcher-driven runs.
+   */
+  skip:
+    boolean |
+    ((context: { trigger: "start" | "build" | "watch"; filePath?: string }) =>
+      boolean | Promise<boolean>),
+  /**
    * Log various steps to aid in tracking down bugs.
    *
    * @default false
