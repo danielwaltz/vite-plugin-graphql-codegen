@@ -19,14 +19,9 @@
     "vite-plugin-graphql-codegen"
   ],
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -36,9 +31,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --max-warnings 0",
+    "build": "tsdown",
+    "lint": "eslint --max-warnings 0",
+    "lint:fix": "eslint --fix",
     "publint": "npx -y publint@latest && npx -y @arethetypeswrong/cli@latest --pack",
     "type-check": "tsc --noEmit",
     "test:unit": "vitest",
@@ -72,8 +67,8 @@
     "prettier": "^3.7.4",
     "semantic-release": "^25.0.2",
     "standard-version": "^9.5.0",
+    "tsdown": "^0.21.10",
     "typescript": "~5.9.3",
-    "unbuild": "~3.4.2",
     "vite": "^7.3.1",
     "vitest": "^4.0.17"
   },
