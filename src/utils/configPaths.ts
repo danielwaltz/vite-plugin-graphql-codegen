@@ -21,7 +21,7 @@ export async function getDocumentPaths(
 
   if (!normalized.length) return [];
 
-  const documents = await context.loadDocuments(normalized);
+  const documents = await context.loadDocuments(normalized, "standard");
 
   if (!documents.length) return [];
 
