@@ -1,5 +1,5 @@
-/** @type {import('semantic-release').GlobalConfig} */
-module.exports = {
+/** @type {Partial<import('semantic-release').GlobalConfig>} */
+export default {
   branches: ["main"],
   plugins: [
     [
