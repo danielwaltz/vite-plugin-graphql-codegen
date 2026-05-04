@@ -1,4 +1,5 @@
 import { promises as fs } from "node:fs";
+import process from "node:process";
 import { createServer, type UserConfig } from "vite";
 import { afterEach, describe, expect, it, vi, type TestContext } from "vitest";
 import codegen, { type Options, type SkipContext } from "../../src/index";
@@ -120,10 +121,12 @@ describe("skip", () => {
       await startServer({ skip }, context as TestContextWithServer);
 
       expect(codegenGenerateMock).toHaveBeenCalledWith({
+        cwd: process.cwd(),
         pluginContext: {},
         schema: SCHEMA_FILE,
         documents: `${DOCUMENT_PATH}/**/*.graphql`,
         watch: false,
+        noSilentErrors: true,
         generates: {
           [OUTPUT_FILE]: {
             plugins: ["typescript", "typescript-operations"],
@@ -187,10 +190,12 @@ describe("skip", () => {
       await updateQueryFile("query Foo { foo bar }");
 
       expect(codegenGenerateMock).toHaveBeenCalledWith({
+        cwd: process.cwd(),
         pluginContext: {},
         schema: SCHEMA_FILE,
         documents: `${DOCUMENT_PATH}/**/*.graphql`,
         watch: false,
+        noSilentErrors: true,
         generates: {
           [OUTPUT_FILE]: {
             plugins: ["typescript", "typescript-operations"],
