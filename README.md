@@ -8,15 +8,27 @@ Installation instructions found [here](https://www.graphql-code-generator.com/do
 
 ## Install Plugin
 
-```shell
+```sh
+# ✨ Auto-detect
+npx nypm install -D vite-plugin-graphql-codegen
+
+# vp
+vp install -D vite-plugin-graphql-codegen
+
 # npm
-npm i -D vite-plugin-graphql-codegen
+npm install -D vite-plugin-graphql-codegen
 
 # yarn
 yarn add -D vite-plugin-graphql-codegen
 
 # pnpm
-pnpm i -D vite-plugin-graphql-codegen
+pnpm install -D vite-plugin-graphql-codegen
+
+# bun
+bun add -D vite-plugin-graphql-codegen
+
+# deno
+deno install -D vite-plugin-graphql-codegen
 ```
 
 ## Initialize Plugin
@@ -24,13 +36,11 @@ pnpm i -D vite-plugin-graphql-codegen
 ```ts
 // vite.config.ts
 
-import { defineConfig } from 'vite';
-import codegen from 'vite-plugin-graphql-codegen';
+import { defineConfig } from "vite";
+import codegen from "vite-plugin-graphql-codegen";
 
 export default defineConfig({
-  plugins: [
-    codegen(),
-  ],
+  plugins: [codegen()],
 });
 ```
 
