@@ -1,3 +1,9 @@
+## [3.9.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.9.0...v3.9.1) (2026-05-04)
+
+### Bug Fixes
+
+* support `@graphql-codegen/cli` v7.0.0 ([c9d50e2](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c9d50e215a7b1028e49a8a52842ab9a7391f3f2c)), closes [#42](https://github.com/danielwaltz/vite-plugin-graphql-codegen/issues/42)
+
 ## [3.9.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.8.0...v3.9.0) (2026-03-26)
 
 ### Features
