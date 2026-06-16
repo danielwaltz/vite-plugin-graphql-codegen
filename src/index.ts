@@ -106,7 +106,7 @@ export interface Options {
   debug?: boolean;
 }
 
-export default function GraphQLCodegen(options?: Options): Plugin {
+export function GraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
 
@@ -291,3 +291,5 @@ export default function GraphQLCodegen(options?: Options): Plugin {
     },
   } as const satisfies Plugin;
 }
+
+export default GraphQLCodegen;
