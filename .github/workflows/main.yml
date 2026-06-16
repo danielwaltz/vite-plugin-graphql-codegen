@@ -27,7 +27,6 @@ jobs:
         with:
           node-version-file: .node-version
           cache: npm
-      - run: npm i -g npm@latest
       - run: npm ci
       - run: npm run semantic-release
         env:
