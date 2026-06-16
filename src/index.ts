@@ -9,14 +9,10 @@ import { debugLog } from "./utils/debugLog";
 import { isCodegenConfig, isGeneratedFile } from "./utils/fileMatchers";
 import { createMatchCache } from "./utils/matchCache";
 import { isBuildMode, isServeMode, type ViteMode } from "./utils/viteModes";
+import type { SkipContext, SkipFn } from "./utils/skip";
 import type { Plugin } from "vite";
 
-export interface SkipContext {
-  trigger: "start" | "build" | "watch";
-  filePath?: string;
-}
-
-export type SkipFn = (context: SkipContext) => boolean | Promise<boolean>;
+export { SkipContext, SkipFn };
 
 export interface Options {
   /**
@@ -110,7 +106,7 @@ export interface Options {
   debug?: boolean;
 }
 
-export function GraphQLCodegen(options?: Options): Plugin {
+export default function GraphQLCodegen(options?: Options): Plugin {
   let codegenContext: CodegenContext;
   let viteMode: ViteMode;
 
@@ -295,5 +291,3 @@ export function GraphQLCodegen(options?: Options): Plugin {
     },
   } as const satisfies Plugin;
 }
-
-export default GraphQLCodegen;
