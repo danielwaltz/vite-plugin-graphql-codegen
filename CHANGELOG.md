@@ -1,3 +1,9 @@
+## [4.0.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v4.0.0...v4.0.1) (2026-06-16)
+
+### Bug Fixes
+
+* ensure named plugin export is still available ([ff81346](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/ff81346735a3b92d5ce2dd60023b34fd68f2d16c))
+
 ## [4.0.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.9.1...v4.0.0) (2026-06-16)
 
 ### ⚠ BREAKING CHANGES
