@@ -1,3 +1,44 @@
+## [4.0.0](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.9.1...v4.0.0) (2026-06-16)
+
+### ⚠ BREAKING CHANGES
+
+* update minimum support peer versions
+* migrate to tsdown and distribute as esm only
+
+### Features
+
+* migrate to tsdown and distribute as esm only ([5421071](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/542107137891f7ab9685d1a229fd307fc042c8b6))
+
+### Bug Fixes
+
+* explicitly set standard document type ([a6b395e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/a6b395e979de8461a4548668cd58bdd9d095d8d7))
+
+### Documentation
+
+* update readme install commands ([60bff99](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/60bff992821056888ba38ab4cab90034033ad99d))
+
+### Miscellaneous Chores
+
+* dedup ([9f5a9a9](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/9f5a9a96d16e0f15dcd51e16057c22d0365b1861))
+* update deps ([988ec9d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/988ec9dbfb65596216f4c44a017256314b92c098))
+* update dev deps ([a66c90c](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/a66c90c61ec6283bdbd0fbf9281a8398479e8497))
+* update eslint config ([5b8e15e](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/5b8e15ee33ebed3b5eccc9f9c5634783f53c8d3e))
+* update minimum support peer versions ([dcbfea1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/dcbfea1a4ef22e530c8e3b89544efeaaf3e33cb8))
+* update package scripts ([c6c7c9f](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/c6c7c9f3a9509bfa924d4fc2ab50475b486ae0be))
+* use esm for release config ([82060ea](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/82060ea6f9030a9e07de9461e9f3a0e08f0dce85))
+
+### Code Refactoring
+
+* move skip types to dedicated module ([f08ec6b](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/f08ec6b2efe1ed0619239934cb8d89b5d20e7868))
+
+### Tests
+
+* update expected call structure ([d7aff36](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/d7aff3657f703031baaec2a592c27b3bcde43179))
+
+### Continuous Integration
+
+* skip installing latest npm version ([3c9318d](https://github.com/danielwaltz/vite-plugin-graphql-codegen/commit/3c9318dbfdf590258e40c1c0b76ae97403e617f0))
+
 ## [3.9.1](https://github.com/danielwaltz/vite-plugin-graphql-codegen/compare/v3.9.0...v3.9.1) (2026-05-04)
 
 ### Bug Fixes
