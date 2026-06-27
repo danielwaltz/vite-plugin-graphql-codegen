@@ -51,10 +51,10 @@
     "vite": ">=7.0.0"
   },
   "devDependencies": {
-    "@danielwaltz/eslint-config": "^3.5.0",
+    "@danielwaltz/eslint-config": "^3.6.1",
     "@graphql-codegen/plugin-helpers": "^7.0.1",
     "@graphql-codegen/typescript": "^6.0.2",
-    "@graphql-codegen/typescript-operations": "^6.0.4",
+    "@graphql-codegen/typescript-operations": "^6.0.5",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -62,19 +62,19 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.1",
     "@types/node": "~24.13.2",
-    "eslint": "^10.5.0",
-    "graphql-tag": "^2.12.6",
+    "eslint": "^10.6.0",
+    "graphql-tag": "^2.12.7",
     "jiti": "^2.7.0",
-    "prettier": "^3.8.4",
+    "prettier": "^3.8.5",
     "semantic-release": "^25.0.5",
     "standard-version": "^9.5.0",
-    "tsdown": "^0.22.2",
+    "tsdown": "^0.22.3",
     "typescript": "~6.0.3",
-    "vite": "^8.0.16",
+    "vite": "^8.1.0",
     "vitest": "^4.1.9"
   },
   "overrides": {
-    "conventional-changelog-conventionalcommits": ">=9.3.1"
+    "conventional-changelog-conventionalcommits": ">=10.0.0"
   },
   "devEngines": {
     "packageManager": {
