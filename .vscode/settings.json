@@ -1,3 +1,33 @@
 {
-  "conventionalCommits.scopes": ["deps"]
+  "[javascript][javascriptreact][typescript][typescriptreact][vue][html][markdown][json][jsonc][yaml][dockercompose]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.prettier": "never",
+      "source.organizeImports": "never",
+      "source.sort.json": "never",
+      "source.sortImports": "never"
+    },
+    "editor.formatOnSave": false
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "dockercompose"
+  ],
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "prettier.enable": true,
+  "prettier.prettierPath": "node_modules/prettier"
 }
