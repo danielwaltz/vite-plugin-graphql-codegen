@@ -10,10 +10,10 @@
     "url": "git+https://github.com/danielwaltz/vite-plugin-graphql-codegen.git"
   },
   "keywords": [
-    "graphql",
     "codegen",
-    "graphql-codegen",
+    "graphql",
     "graphql-code-generator",
+    "graphql-codegen",
     "vite",
     "vite-plugin",
     "vite-plugin-graphql-codegen"
@@ -75,5 +75,17 @@
   },
   "overrides": {
     "conventional-changelog-conventionalcommits": ">=9.3.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24.18.0"
+    }
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
