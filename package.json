@@ -37,13 +37,13 @@
     "prepack": "npm run build",
     "release": "standard-version",
     "semantic-release": "semantic-release",
-    "test": "npm run prepack && npm run lint && npm run type-check && npm run test:unit:run && npm run test:publish",
+    "test": "npm run prepack && npm run lint && npm run typecheck && npm run test:unit:run && npm run test:publish",
     "test:attw": "npx -y @arethetypeswrong/cli@latest --pack --profile esm-only",
     "test:publint": "npx -y publint@latest",
     "test:publish": "npm run test:attw && npm run test:publint",
     "test:unit": "vitest",
     "test:unit:run": "vitest run",
-    "type-check": "tsc --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "@graphql-codegen/cli": ">=7.0.0",
